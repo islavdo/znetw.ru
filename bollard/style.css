@@ -1,0 +1,334 @@
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: #ffffff;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    max-height: 25px;
+}
+
+/* Стили для кнопки меню на мобильных */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Стили для навигации */
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+/* Стили для навигации */
+.nav-menu {
+    display: flex;
+}
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+
+
+.hero {
+    text-align: left;
+    padding: 150px 0;
+    margin-bottom: 30px;
+    background-image: url('seaboats.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero > * {
+    margin-left: 0px;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.herobtn {
+    padding: 80px 0;
+    margin-bottom: 30px;
+    line-height: 60px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.hero h1 {
+    margin-bottom: 30px;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: white;
+}
+
+.content-section {
+    padding: 40px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+}
+
+.content-section h2 {
+    width: 820px;
+    margin-bottom: 30px;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#contact .contact-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#contact .contact-left,
+#contact .contact-right {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+#contact p {
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+#contact a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: center;
+}
+
+footer .copyright {
+    text-align: center;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: rgb(255, 255, 255)
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #008e85;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Медиа-запросы для мобильных */
+@media (max-width: 768px) {
+    header .container {
+        position: relative; 
+    }
+    .menu-toggle {
+         display: block;
+    }
+    
+  
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+         z-index: 1000; 
+
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+     .nav-menu ul {
+       display: flex;
+       flex-direction: column;
+       padding: 10px; 
+    }
+
+    .nav-menu ul li {
+        display: block;
+        margin: 10px 0;
+         text-align: center;
+
+    }
+
+     .hero {
+        padding: 80px 0;
+         background-position: center center;
+         background-size: cover;
+        text-align: center;
+   }
+        .hero > * {
+        padding: 0 10px;
+    }
+   .hero h1 {
+        font-size: 2em;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .hero p {
+        font-size: 1em;
+         text-align: center;
+    }
+    .herobtn{
+        padding: 30px 0;
+        line-height: 30px;
+         text-align: center;
+    }
+    .content-section h2{
+        font-size: 1.5em;
+        line-height: 1.4;
+        text-align: center;
+        width: auto;
+    }
+    
+    #contact .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contact .contact-left,
+    #contact .contact-right {
+        text-align: center;
+        min-width: 90%;
+        margin-bottom: 20px;
+    }
+    footer .footer-content {
+     flex-direction: column;
+     text-align: center;
+}
+}
+
+/* Маленькие экраны телефонов */
+@media (max-width: 480px) {
+    .hero {
+      padding: 60px 0;
+   }
+}

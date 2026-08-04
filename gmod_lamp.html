@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="windows-1251">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>-= GARRY'S MOD FAN ZONE =-</title>
+<style>
+html { background:#000033; }
+body {
+  margin:0;
+  color:#fff;
+  font-family:"Trebuchet MS", Arial, sans-serif;
+  background:
+    url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_hero.jpg") center top / cover fixed no-repeat,
+    #000033;
+}
+body:before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none;
+  background:rgba(0,0,55,.72);
+}
+a { color:#00ffff; }
+a:hover { color:#ffff00; }
+.page {
+  position:relative;
+  width:780px;
+  max-width:calc(100% - 16px);
+  margin:12px auto 40px;
+  border:4px ridge #66ccff;
+  background:#06074f;
+  box-shadow:0 0 0 4px #000, 0 0 35px #00ccff;
+}
+.topline {
+  color:#ffff00;
+  background:#000;
+  border-bottom:2px solid #ff00ff;
+  font:700 13px Verdana, sans-serif;
+  padding:5px;
+}
+.header {
+  min-height:205px;
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,45,.15),rgba(0,0,45,.75)),
+    url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg") center/cover no-repeat;
+  border-bottom:4px groove #33ccff;
+  position:relative;
+  overflow:hidden;
+}
+.header h1{
+  margin:18px 10px 4px;
+  color:#fff;
+  font:900 52px Impact, Arial Black, sans-serif;
+  letter-spacing:2px;
+  text-shadow:3px 3px 0 #003399,-3px -3px 0 #ff00cc,0 0 16px #00ffff;
+}
+.header .sub{
+  color:#ffff00;
+  font:bold 17px "Comic Sans MS", cursive;
+  text-shadow:2px 2px #000;
+}
+.sparkle{
+  position:absolute;
+  color:#fff;
+  animation:blink .65s steps(2) infinite;
+  font-size:22px;
+}
+.s1{left:8%;top:25px}.s2{right:10%;top:50px;animation-delay:.25s}
+.s3{left:20%;bottom:20px;animation-delay:.4s}.s4{right:22%;bottom:16px}
+@keyframes blink{50%{opacity:0;transform:scale(.6)}}
+.nav {
+  padding:7px;
+  text-align:center;
+  background:linear-gradient(#315bde,#071977);
+  border-top:1px solid #99ffff;
+  border-bottom:3px ridge #aaddff;
+}
+.nav a{
+  display:inline-block;
+  margin:2px;
+  padding:5px 10px;
+  color:#fff;
+  font:bold 12px Verdana;
+  text-decoration:none;
+  border:2px outset #66aaff;
+  background:#1238a8;
+}
+.nav a:active{border-style:inset}
+.layout { width:100%; border-collapse:collapse; }
+.sidebar {
+  width:185px;
+  vertical-align:top;
+  padding:8px;
+  background:#050538;
+  border-right:3px ridge #3366cc;
+}
+.content { vertical-align:top; padding:10px; }
+.box {
+  margin-bottom:10px;
+  border:3px ridge #33ccff;
+  background:#090963;
+}
+.box-title{
+  padding:5px 7px;
+  color:#ffff00;
+  text-align:center;
+  font:bold 14px Verdana;
+  background:linear-gradient(90deg,#03045e,#7113a8,#03045e);
+  border-bottom:2px solid #ff00ff;
+}
+.box-body { padding:8px; font-size:13px; }
+.menu a{
+  display:block;
+  margin:4px 0;
+  padding:5px;
+  color:#00ffff;
+  text-decoration:none;
+  border:1px dotted #00ccff;
+  background:#08084c;
+}
+.menu a:before{content:"» "}
+.menu a:hover{background:#4b0978;color:#ffff00}
+.counter{
+  margin:7px auto;
+  padding:5px;
+  width:106px;
+  text-align:center;
+  color:#00ff66;
+  background:#000;
+  border:2px inset #aaa;
+  font:20px "Courier New", monospace;
+  letter-spacing:3px;
+}
+.online{color:#00ff66;font-weight:bold}
+.status-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:#00ff44;box-shadow:0 0 8px #00ff44;
+}
+.welcome{
+  color:#fff;
+  font-size:14px;
+  line-height:1.45;
+}
+.welcome:first-letter{
+  float:left;
+  margin:0 7px 0 0;
+  font:58px Impact;
+  color:#00ffff;
+  text-shadow:2px 2px #ff00ff;
+}
+.old-photo{
+  display:block;
+  width:94%;
+  margin:8px auto;
+  padding:5px;
+  border:4px ridge #eee;
+  background:#fff;
+  filter:saturate(.78) contrast(1.08);
+}
+.caption{
+  text-align:center;
+  color:#ffff99;
+  font:12px "Comic Sans MS", cursive;
+}
+.gallery{
+  text-align:center;
+}
+.photo-card{
+  display:inline-block;
+  width:46%;
+  min-width:190px;
+  margin:5px;
+  padding:5px;
+  vertical-align:top;
+  color:#000;
+  background:#eee;
+  border:3px outset #fff;
+  transform:rotate(-1deg);
+}
+.photo-card:nth-child(even){transform:rotate(1.2deg)}
+.photo-card img{
+  width:100%;
+  height:145px;
+  object-fit:cover;
+  display:block;
+  background:#777;
+}
+.photo-card b{
+  display:block;
+  padding:5px 2px 2px;
+  font:12px "Comic Sans MS", cursive;
+}
+.history{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+.history td{
+  padding:7px;
+  border:1px solid #3399ff;
+}
+.history td:first-child{
+  width:62px;
+  color:#ffff00;
+  font-weight:bold;
+  background:#101080;
+}
+.fact{
+  margin:7px 0;
+  padding:7px;
+  border-left:5px solid #ff00ff;
+  background:#11117a;
+}
+.construction{
+  text-align:center;
+  color:#ffff00;
+  font:bold 15px "Comic Sans MS", cursive;
+}
+.cone{
+  display:inline-block;
+  font-size:38px;
+  animation:wobble 1s infinite alternate;
+}
+@keyframes wobble{to{transform:rotate(10deg) translateY(-4px)}}
+.guestbook input,.guestbook textarea{
+  width:96%;
+  box-sizing:border-box;
+  margin:3px 0;
+  color:#00ff00;
+  background:#000;
+  border:2px inset #ccc;
+  font:12px "Courier New";
+}
+.guestbook button{
+  color:#000;
+  background:#ddd;
+  border:3px outset #fff;
+  font:bold 12px Verdana;
+  cursor:pointer;
+}
+.fake-post{
+  margin-top:7px;
+  padding:6px;
+  color:#111;
+  background:#ffffcc;
+  border:1px solid #999;
+  font:12px Arial;
+}
+.footer{
+  padding:10px;
+  text-align:center;
+  color:#99ccff;
+  background:#020222;
+  border-top:3px ridge #3399ff;
+  font:11px Verdana;
+}
+.badges span{
+  display:inline-block;
+  margin:3px;
+  padding:3px 6px;
+  color:#fff;
+  background:#000;
+  border:1px solid #aaa;
+  font:10px Verdana;
+}
+.rainbow{
+  animation:rainbow 2s linear infinite;
+}
+@keyframes rainbow{
+  0%{color:#f00}17%{color:#ff0}34%{color:#0f0}
+  51%{color:#0ff}68%{color:#66f}85%{color:#f0f}100%{color:#f00}
+}
+@media(max-width:700px){
+  .page{max-width:calc(100% - 8px);margin:4px auto}
+  .header h1{font-size:36px}
+  .layout,.layout tbody,.layout tr,.sidebar,.content{display:block;width:auto}
+  .sidebar{border-right:0;border-bottom:3px ridge #3366cc}
+  .photo-card{width:90%}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topline">
+    <marquee scrollamount="5">★ ДОБРО ПОЖАЛОВАТЬ НА ЛУЧШИЙ ФАН-САЙТ GARRY'S MOD В РУНЕТЕ ★ ОБНОВЛЕНИЕ САЙТА: 04.08.2005 ★ НЕ ЗАБУДЬ ДОБАВИТЬ В ИЗБРАННОЕ ★</marquee>
+  </div>
+
+  <header class="header">
+    <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span>
+    <span class="sparkle s3">★</span><span class="sparkle s4">✦</span>
+    <h1>GARRY'S MOD</h1>
+    <div class="sub">-= российский фан-сайт великой физической песочницы =-</div>
+  </header>
+
+  <nav class="nav">
+    <a href="#main">ГЛАВНАЯ</a>
+    <a href="#history">ИСТОРИЯ</a>
+    <a href="#gallery">ФОТОГАЛЕРЕЯ</a>
+    <a href="#facts">СЕКРЕТЫ</a>
+    <a href="#guestbook">ГОСТЕВАЯ</a>
+  </nav>
+
+  <table class="layout">
+    <tr>
+      <td class="sidebar">
+        <div class="box">
+          <div class="box-title">НАВИГАЦИЯ</div>
+          <div class="box-body menu">
+            <a href="#main">Новости сайта</a>
+            <a href="#history">История GMod</a>
+            <a href="#gallery">Скриншоты</a>
+            <a href="#facts">Интересные факты</a>
+            <a href="#guestbook">Гостевая книга</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">НАШ СЕРВЕР</div>
+          <div class="box-body" style="text-align:center">
+            <div><span class="status-dot"></span> <span class="online">ONLINE</span></div>
+            <b>GMod Old School</b><br>
+            <code>play.example.ru:27015</code><br><br>
+            Игроков: <b>12 / 24</b>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">СЧЁТЧИК</div>
+          <div class="box-body" style="text-align:center">
+            Вы посетитель №
+            <div class="counter" id="counter">000666</div>
+            <small>с 12.06.2005</small>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-title">ДРУЗЬЯ САЙТА</div>
+          <div class="box-body menu">
+            <a href="#">HL2 Portal</a>
+            <a href="#">Source-Mania</a>
+            <a href="#">GMod Clan 2005</a>
+            <a href="#">Каталог модов</a>
+          </div>
+        </div>
+
+        <div class="construction">
+          <span class="cone">🚧</span><br>
+          САЙТ В РАЗРАБОТКЕ
+        </div>
+      </td>
+
+      <td class="content">
+        <div class="box" id="main">
+          <div class="box-title">★ ГЛАВНАЯ СТРАНИЦА ★</div>
+          <div class="box-body">
+            <img class="old-photo" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/capsule_616x353.jpg" alt="Garry's Mod">
+            <div class="caption">Официальная картинка Garry's Mod. Круто, правда?</div>
+            <p class="welcome">
+              Привет, путник! Ты попал на домашнюю страничку настоящих ценителей
+              Garry's Mod. Здесь мы собираем старые скриншоты, смешные истории,
+              секреты Source Engine, рассказы о безумных механизмах и лучшие моменты
+              с наших ночных LAN-посиделок.
+            </p>
+            <p>
+              На сайте нет регистрации, рекламы и умных алгоритмов. Только таблицы,
+              яркие ссылки, музыка из Winamp и уважение к великой физической пушке.
+            </p>
+            <p class="rainbow" style="text-align:center;font:bold 18px 'Comic Sans MS'">
+              Нажми F5, чтобы стало ещё ламповее!
+            </p>
+          </div>
+        </div>
+
+        <div class="box" id="history">
+          <div class="box-title">ИСТОРИЯ GARRY'S MOD</div>
+          <div class="box-body">
+            <table class="history">
+              <tr><td>2004</td><td>Первые версии мода для Half-Life 2. Игроки получают доступ к физике Source Engine.</td></tr>
+              <tr><td>2005</td><td>Мод быстро обрастает инструментами, картами и собственным сообществом.</td></tr>
+              <tr><td>2006</td><td>Garry's Mod становится самостоятельной игрой в Steam.</td></tr>
+              <tr><td>2010+</td><td>Появляются DarkRP, TTT, Prop Hunt и тысячи пользовательских дополнений.</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="box" id="gallery">
+          <div class="box-title">ФОТОГАЛЕРЕЯ</div>
+          <div class="box-body gallery">
+            <div class="photo-card">
+              <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg" alt="Скриншот Garry's Mod">
+              <b>Типичный спокойный вечер в Sandbox</b>
+            </div>
+            <div class="photo-card">
+              <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/capsule_616x353.jpg" alt="Garry's Mod арт">
+              <b>Когда физическая пушка попала не в те руки</b>
+            </div>
+            <div class="photo-card">
+              <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_hero.jpg" alt="Garry's Mod фон">
+              <b>Строим аппарат, который точно не взорвётся</b>
+            </div>
+            <div class="photo-card">
+              <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_600x900.jpg" alt="Garry's Mod обложка">
+              <b>Легендарная синяя буква G</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="box" id="facts">
+          <div class="box-title">СЕКРЕТНЫЕ МАТЕРИАЛЫ</div>
+          <div class="box-body">
+            <div class="fact"><b>Tool Gun</b> — главный инструмент настоящего инженера, режиссёра и разрушителя.</div>
+            <div class="fact"><b>Lua</b> позволяет превращать песочницу в практически любую игру.</div>
+            <div class="fact"><b>Ragdoll-позинг</b> породил целую культуру комиксов и любительских роликов.</div>
+            <div class="fact"><b>gm_construct</b> для многих игроков стала почти родным виртуальным двором.</div>
+          </div>
+        </div>
+
+        <div class="box" id="guestbook">
+          <div class="box-title">ГОСТЕВАЯ КНИГА</div>
+          <div class="box-body guestbook">
+            <label>Ваш ник:</label>
+            <input id="nick" value="xXx_GMod_Master_xXx">
+            <label>Сообщение:</label>
+            <textarea id="message" rows="3">Сайт супер!!! Добавил в закладки :-)</textarea>
+            <button onclick="postMessage()">ОТПРАВИТЬ</button>
+            <div id="posts">
+              <div class="fake-post"><b>Admin</b> [12.06.2005 22:14]<br>Добро пожаловать! Не флудить и не ругаться матом.</div>
+              <div class="fake-post"><b>Gordon_Freeman</b> [13.06.2005 00:42]<br>А где скачать мод без регистрации и SMS?</div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <footer class="footer">
+    <div class="badges">
+      <span>BEST VIEWED 1024×768</span>
+      <span>MADE WITH NOTEPAD</span>
+      <span>NO FLASH REQUIRED</span>
+      <span>INTERNET EXPLORER 6 READY</span>
+    </div>
+    © 2005–<span id="year"></span> GARRY'S MOD FAN ZONE<br>
+    Пишите веб-мастеру: <a href="mailto:webmaster@example.ru">webmaster@example.ru</a>
+  </footer>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+let visits = Number(localStorage.getItem("gmodVisits") || 666);
+visits++;
+localStorage.setItem("gmodVisits", visits);
+document.getElementById("counter").textContent = String(visits).padStart(6,"0");
+
+function postMessage(){
+  const nick = document.getElementById("nick").value.trim() || "Аноним";
+  const text = document.getElementById("message").value.trim();
+  if(!text) return;
+  const now = new Date();
+  const stamp = now.toLocaleDateString("ru-RU") + " " +
+    now.toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"});
+  const div = document.createElement("div");
+  div.className = "fake-post";
+  div.innerHTML = "<b>" + escapeHtml(nick) + "</b> [" + stamp + "]<br>" + escapeHtml(text);
+  document.getElementById("posts").prepend(div);
+  document.getElementById("message").value = "";
+}
+function escapeHtml(value){
+  const div=document.createElement("div");
+  div.textContent=value;
+  return div.innerHTML;
+}
+</script>
+</body>
+</html>
