@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Подробное руководство по установке и работе с настольным и веб-интерфейсом MarkItDown на Windows.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#008e85">
   <title>MarkItDown — руководство пользователя</title>
   <style>
     :root{--accent:#008e85;--accent-dark:#00766f;--soft:#e6f5f3;--bg:#f5f7f6;--card:#fff;--text:#202827;--muted:#66716f;--line:#d8e0de;--warn:#8b5e00}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",Arial,sans-serif}
-    a{color:var(--accent-dark)}a:hover{color:var(--accent)}.layout{display:grid;grid-template-columns:270px minmax(0,850px);gap:32px;max-width:1190px;margin:auto;padding:28px 24px 70px}
+    a{color:var(--accent-dark)}a:hover{color:var(--accent)}a:focus-visible,button:focus-visible{outline:3px solid #f2b84b;outline-offset:3px}.skip{position:absolute;left:-9999px;top:8px;background:#fff;padding:10px 14px;z-index:10}.skip:focus{left:8px}.layout{display:grid;grid-template-columns:270px minmax(0,850px);gap:32px;max-width:1190px;margin:auto;padding:28px 24px 70px}
     aside{position:sticky;top:20px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 28px rgba(32,40,39,.06)}
     .brand{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:700;margin-bottom:18px}.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--accent);color:#fff}
     nav a{display:block;padding:7px 9px;border-radius:7px;text-decoration:none;color:var(--muted)}nav a:hover{background:var(--soft);color:var(--accent-dark)}
@@ -20,18 +23,19 @@
   </style>
 </head>
 <body id="top">
+<a class="skip" href="#content">Перейти к содержанию</a>
 <div class="layout">
   <aside>
     <div class="brand"><span class="logo">M</span><span>MarkItDown</span></div>
     <nav aria-label="Содержание">
-      <a href="#purpose">Назначение</a><a href="#start">Запуск</a><a href="#interface">Интерфейс</a>
+      <a href="#purpose">Назначение</a><a href="#before-start">Перед началом</a><a href="#start">Запуск</a><a href="#interface">Интерфейс</a>
       <a href="#convert">Конвертация</a><a href="#folders">Работа с папками</a><a href="#settings">Настройки</a>
-      <a href="#results">Результаты</a><a href="#formats">Форматы</a><a href="#errors">Решение проблем</a>
-      <a href="#performance">Быстрая работа</a><a href="#privacy">Безопасность</a>
+      <a href="#results">Результаты</a><a href="#web">Веб-интерфейс</a><a href="#formats">Форматы</a><a href="#errors">Решение проблем</a>
+      <a href="#performance">Быстрая работа</a><a href="#privacy">Безопасность</a><a href="#faq">Частые вопросы</a>
     </nav>
   </aside>
 
-  <main>
+  <main id="content">
     <header class="hero">
       <h1>Руководство пользователя MarkItDown</h1>
       <p class="lead">Локальное преобразование документов, таблиц, презентаций, PDF и других файлов в Markdown.</p>
@@ -47,8 +51,27 @@
       </div>
     </section>
 
+    <section id="before-start">
+      <h2>2. Перед первым запуском</h2>
+      <div class="card">
+        <h3>Что потребуется</h3>
+        <ul class="check">
+          <li>64-разрядная Windows 10 или 11.</li>
+          <li>Права на чтение исходных файлов и запись в папку результата.</li>
+          <li>Подключение к интернету только для первоначальной подготовки окружения.</li>
+          <li>Несколько гигабайт свободного места для программы, зависимостей и результатов.</li>
+        </ul>
+      </div>
+      <div class="steps">
+        <div class="step"><strong>Распакуйте или скопируйте всю папку программы.</strong> Не запускайте приложение прямо из ZIP-архива.</div>
+        <div class="step"><strong>Не удаляйте служебные папки.</strong> Каталоги <code>.python-runtime</code> и <code>.venv-gui</code> содержат локальную среду выполнения.</div>
+        <div class="step"><strong>Для переноса скопируйте папку целиком.</strong> На другом компьютере запустите <code>Запустить GUI.bat</code>; системный Python устанавливать не требуется.</div>
+      </div>
+      <div class="note"><strong>Повторная установка.</strong> Если подготовка была прервана, снова запустите <code>Запустить GUI.bat</code>. Скрипт проверит окружение и продолжит настройку.</div>
+    </section>
+
     <section id="start">
-      <h2>2. Запуск программы</h2>
+      <h2>3. Запуск программы</h2>
       <h3>Обычный запуск</h3>
       <div class="steps">
         <div class="step">Найдите ярлык <strong>MarkItDown</strong> на рабочем столе Windows.</div>
@@ -61,7 +84,7 @@
     </section>
 
     <section id="interface">
-      <h2>3. Основные элементы интерфейса</h2>
+      <h2>4. Основные элементы интерфейса</h2>
       <table>
         <thead><tr><th>Элемент</th><th>Назначение</th></tr></thead>
         <tbody>
@@ -77,7 +100,7 @@
     </section>
 
     <section id="convert">
-      <h2>4. Быстрая конвертация</h2>
+      <h2>5. Быстрая конвертация</h2>
       <div class="steps">
         <div class="step"><strong>Добавьте файлы.</strong> Перетащите их из Проводника в большую область вверху либо нажмите «Добавить файлы».</div>
         <div class="step"><strong>Проверьте очередь.</strong> Ненужные строки можно выделить и удалить. Кнопки <kbd>↑</kbd> и <kbd>↓</kbd> меняют порядок.</div>
@@ -89,7 +112,7 @@
     </section>
 
     <section id="folders">
-      <h2>5. Работа с папками</h2>
+      <h2>6. Работа с папками</h2>
       <p>Папку можно перетащить в окно или выбрать кнопкой «Добавить папку». Программа просматривает вложенные каталоги и добавляет найденные файлы в очередь.</p>
       <h3>Сохранение структуры каталогов</h3>
       <p>Если выбрана общая папка результата, структура перетащенной папки сохраняется. Например:</p>
@@ -98,7 +121,7 @@
     </section>
 
     <section id="settings">
-      <h2>6. Настройки</h2>
+      <h2>7. Настройки</h2>
       <table>
         <thead><tr><th>Настройка</th><th>Когда использовать</th></tr></thead>
         <tbody>
@@ -113,7 +136,7 @@
     </section>
 
     <section id="results">
-      <h2>7. Просмотр и открытие результатов</h2>
+      <h2>8. Просмотр и открытие результатов</h2>
       <ul>
         <li>Один щелчок по строке показывает исходный и ожидаемый выходной путь.</li>
         <li>После успешной обработки в правой панели появляется Markdown.</li>
@@ -125,8 +148,33 @@
       <p>Состояния очереди: <strong>Ожидает</strong>, <strong>Обработка…</strong>, <strong>Готово</strong> и <strong>Ошибка</strong>. Текст ошибки доступен во всплывающей подсказке состояния.</p>
     </section>
 
+    <section id="web">
+      <h2>9. Веб-интерфейс и Windows Server</h2>
+      <p>Веб-режим удобен, когда конвертер работает на одном компьютере, а документы загружают из браузеров в локальной сети.</p>
+      <div class="steps">
+        <div class="step">На сервере запустите <code>Start Web GUI.bat</code>.</div>
+        <div class="step">На этом же компьютере откройте <code>http://localhost:8080</code>. С другого устройства используйте <code>http://IP-СЕРВЕРА:8080</code>.</div>
+        <div class="step">Перетащите файлы в браузер, настройте порядок и параметры, затем нажмите «Конвертировать».</div>
+        <div class="step">Просмотрите отдельные результаты, скачайте нужный <code>.md</code> или общий ZIP-архив.</div>
+      </div>
+      <h3>Настройка сервера</h3>
+      <p>Откройте <code>web_settings.cmd</code> в Блокноте, измените значения и перезапустите сервер.</p>
+      <table>
+        <thead><tr><th>Параметр</th><th>Назначение</th><th>По умолчанию</th></tr></thead>
+        <tbody>
+          <tr><td><code>MARKITDOWN_PORT</code></td><td>TCP-порт веб-сервера</td><td><code>8080</code></td></tr>
+          <tr><td><code>MARKITDOWN_HOST</code></td><td>Сетевой интерфейс; <code>0.0.0.0</code> разрешает подключения из локальной сети</td><td><code>0.0.0.0</code></td></tr>
+          <tr><td><code>MARKITDOWN_MAX_UPLOAD_MB</code></td><td>Общий предел одной загрузки</td><td><code>500</code> МБ</td></tr>
+          <tr><td><code>MARKITDOWN_USER</code>, <code>MARKITDOWN_PASSWORD</code></td><td>Имя и пароль Basic Auth; защита включается, когда заданы оба значения</td><td>не заданы</td></tr>
+          <tr><td><code>MARKITDOWN_NO_BROWSER</code></td><td>Значение <code>1</code> отключает автоматическое открытие браузера</td><td><code>0</code></td></tr>
+        </tbody>
+      </table>
+      <div class="warning"><strong>Не публикуйте встроенный сервер напрямую в интернете.</strong> Для внешнего доступа задайте пароль, ограничьте доступ брандмауэром и используйте HTTPS reverse proxy (например, IIS, Caddy или nginx).</div>
+      <p>Временные данные сохраняются в <code>.web-data</code> и автоматически удаляются примерно через 24 часа. Не используйте эту папку как постоянное хранилище.</p>
+    </section>
+
     <section id="formats">
-      <h2>8. Поддерживаемые форматы</h2>
+      <h2>10. Поддерживаемые форматы</h2>
       <table>
         <tbody>
           <tr><th>Документы</th><td>PDF, DOCX, TXT, Markdown, EPUB</td></tr>
@@ -142,17 +190,19 @@
     </section>
 
     <section id="errors">
-      <h2>9. Если что-то не работает</h2>
+      <h2>11. Если что-то не работает</h2>
       <h3>Файл уже существует</h3><p>Выберите другую папку, удалите старый результат либо включите «Перезаписывать».</p>
       <h3>Нет доступа к папке</h3><p>Выберите папку внутри профиля пользователя, например «Документы». Проверьте, не открыт ли результат другой программой с блокировкой записи.</p>
       <h3>Файл не добавляется</h3><p>Убедитесь, что это обычный локальный файл, он существует и доступен для чтения. Сетевой или облачный файл сначала лучше полностью скачать.</p>
       <h3>Ошибка обработки PDF или Office</h3><p>Попробуйте открыть исходник в его штатной программе. Повреждённый или защищённый паролем документ может не конвертироваться.</p>
       <h3>Ярлык перестал работать</h3><p>Проверьте, не была ли перемещена папка программы. Запустите <code>Запустить GUI.bat</code> непосредственно из неё или создайте новый ярлык.</p>
       <h3>Окно долго появляется</h3><p>При первом запуске Windows может проверять новые библиотеки. Последующие запуски обычно быстрее. Не удаляйте папку <code>.venv-gui</code>.</p>
+      <h3>Веб-страница не открывается с другого компьютера</h3><p>Сначала проверьте адрес на сервере через <code>localhost:8080</code>. Затем узнайте IP-адрес сервера, разрешите выбранный порт в брандмауэре Windows и убедитесь, что устройства находятся в одной сети.</p>
+      <h3>Получился пустой или неполный Markdown</h3><p>Проверьте, выделяется ли текст в исходном документе. Для сканов нужен OCR. Сложная верстка, рукописный текст, защищённые файлы и повреждённые архивы могут извлекаться не полностью.</p>
     </section>
 
     <section id="performance">
-      <h2>10. Советы для быстрой работы</h2>
+      <h2>12. Советы для быстрой работы</h2>
       <ul class="check">
         <li>Для больших заданий выбирайте отдельную локальную папку результата.</li>
         <li>Не включайте Data URI без необходимости.</li>
@@ -164,7 +214,7 @@
     </section>
 
     <section id="privacy">
-      <h2>11. Конфиденциальность и безопасность</h2>
+      <h2>13. Конфиденциальность и безопасность</h2>
       <p>Обычная конвертация выполняется локально на компьютере. Программа читает выбранные пользователем исходники и записывает Markdown в указанную папку.</p>
       <ul>
         <li>Не открывайте неизвестные результаты без проверки исходных файлов.</li>
@@ -172,6 +222,15 @@
         <li>При включении сторонних плагинов учитывайте их собственные правила работы.</li>
         <li>Не удаляйте исходники до проверки результата.</li>
       </ul>
+    </section>
+
+    <section id="faq">
+      <h2>14. Частые вопросы</h2>
+      <h3>Исходные документы изменяются?</h3><p>Нет. Программа читает исходники и создаёт отдельные файлы <code>.md</code>.</p>
+      <h3>Куда сохраняется результат?</h3><p>В выбранную папку результата. Если она не указана, отдельный Markdown сохраняется рядом с исходником.</p>
+      <h3>Можно ли остановить очередь?</h3><p>Да. «Отмена» завершает текущий файл и не начинает следующий; уже записанные результаты сохраняются.</p>
+      <h3>Почему общий файл не заменяет отдельные?</h3><p>Объединение создаёт дополнительный документ. Отдельные результаты сохраняются для проверки и повторного использования.</p>
+      <h3>Нужен ли интернет во время конвертации?</h3><p>Для обычной локальной конвертации — нет. Он может понадобиться при первой установке, а также плагинам или облачным функциям, если они включены.</p>
     </section>
 
     <footer>
