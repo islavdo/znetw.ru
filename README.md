@@ -1,21 +1,20 @@
 # znetw.ru
 
-Статический сайт, автоматически публикуемый на GitHub Pages из ветки `main`.
+Статический сайт публикуется средствами GitHub Pages непосредственно из корня ветки `main` — без GitHub Actions и без отдельной ветки `gh-pages`.
 
-## Публикация
+## Настройка GitHub Pages
 
-Workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) запускается при каждом push в `main`. Его также можно запустить вручную на вкладке **Actions → Deploy to GitHub Pages → Run workflow**.
+1. Откройте **Settings → Pages** в репозитории.
+2. В разделе **Build and deployment** выберите **Source → Deploy from a branch**.
+3. Выберите ветку **main**, каталог **/(root)** и нажмите **Save**.
+4. В поле **Custom domain** укажите `znetw.ru` и нажмите **Save**.
+5. Дождитесь выпуска сертификата и включите **Enforce HTTPS**.
 
-Однократная настройка репозитория:
-
-1. Открыть **Settings → Pages**.
-2. В **Build and deployment → Source** выбрать **GitHub Actions**.
-3. В поле **Custom domain** указать `znetw.ru` и нажать **Save**.
-4. После выпуска сертификата включить **Enforce HTTPS**.
+После этого каждый push в `main` автоматически обновляет сайт. Главная страница — корневой [`index.html`](index.html). Файл [`CNAME`](CNAME) закрепляет домен `znetw.ru`, а [`.nojekyll`](.nojekyll) отключает обработку Jekyll.
 
 ## DNS для znetw.ru
 
-Для корневого домена (`@`) должны быть настроены A-записи GitHub Pages:
+A-записи корневого домена (`@`):
 
 ```text
 185.199.108.153
@@ -24,7 +23,7 @@ Workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.y
 185.199.111.153
 ```
 
-Опционально добавьте IPv6 AAAA-записи:
+Опциональные AAAA-записи:
 
 ```text
 2606:50c0:8000::153
@@ -33,7 +32,7 @@ Workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.y
 2606:50c0:8003::153
 ```
 
-Для `www` можно создать CNAME-запись `www` → `islavdo.github.io`. Не используйте wildcard-записи (`*`). GitHub рекомендует дополнительно подтвердить владение доменом в **Profile settings → Pages** и сохранить выданную TXT-запись.
+Для `www` используйте CNAME-запись `www` → `islavdo.github.io`. Не используйте wildcard-записи (`*`). Для защиты от перехвата домена рекомендуется подтвердить его через **Profile settings → Pages** и сохранить выданную GitHub TXT-запись.
 
 Проверка DNS в PowerShell:
 
@@ -41,5 +40,3 @@ Workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.y
 Resolve-DnsName znetw.ru -Type A
 Resolve-DnsName www.znetw.ru -Type CNAME
 ```
-
-Изменения DNS могут распространяться до 24 часов.
