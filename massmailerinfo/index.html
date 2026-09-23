@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="ru" data-language="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Полная инструкция по установке и использованию Mass Mailer 2.4 для Outlook Classic. Full installation and usage guide for Mass Mailer 2.4.">
+  <title>Mass Mailer 2.4 — Installation & User Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Mass Mailer">
+        <span class="brand-mark">MM</span>
+        <span>
+          <strong>Mass Mailer</strong>
+          <small>2.4</small>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <button class="utility-btn" id="printBtn" type="button" aria-label="Print">
+          <span aria-hidden="true">⎙</span>
+          <span class="only-ru">Печать</span>
+          <span class="only-en">Print</span>
+        </button>
+
+        <div class="language-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="ru" class="is-active">RU</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="top"></div>
+
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy only-ru">
+        <div class="eyebrow">OUTLOOK CLASSIC · WINDOWS · VBA</div>
+        <h1>Полная инструкция<br>Mass Mailer 2.4</h1>
+        <p class="lead">Установка, настройка и безопасная массовая рассылка индивидуальных писем через Outlook Classic. Одно значение TO — одно отдельное письмо.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#ru-quickstart">Быстрый старт</a>
+          <a class="btn btn-secondary" href="#ru-install">Установка с нуля</a>
+        </div>
+        <p class="hero-note">Кнопка <kbd>?</kbd> в правом верхнем углу Mass Mailer открывает эту страницу.</p>
+      </div>
+
+      <div class="hero-copy only-en">
+        <div class="eyebrow">OUTLOOK CLASSIC · WINDOWS · VBA</div>
+        <h1>Complete guide<br>Mass Mailer 2.4</h1>
+        <p class="lead">Installation, setup and safe bulk delivery of individual messages through Outlook Classic. One TO recipient means one separate email.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#en-quickstart">Quick start</a>
+          <a class="btn btn-secondary" href="#en-install">Clean installation</a>
+        </div>
+        <p class="hero-note">The <kbd>?</kbd> button in the upper-right corner of Mass Mailer opens this page.</p>
+      </div>
+
+      <aside class="hero-panel" aria-label="Key facts">
+        <div class="stat">
+          <span class="stat-value">1 → 1</span>
+          <span class="only-ru">получатель → письмо</span>
+          <span class="only-en">recipient → message</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">TO</span>
+          <span class="only-ru">меняется индивидуально</span>
+          <span class="only-en">replaced individually</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">CC/BCC</span>
+          <span class="only-ru">сохраняются из шаблона</span>
+          <span class="only-en">preserved from template</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">FROM</span>
+          <span class="only-ru">берётся из письма-шаблона</span>
+          <span class="only-en">inherited from source email</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main id="content">
+    <!-- ===================== RUSSIAN ===================== -->
+    <div class="language-content only-ru" id="ru-content">
+
+      <section class="section" id="ru-overview">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ИНТЕРФЕЙС</span>
+            <h2>Как выглядит Mass Mailer</h2>
+            <p>Ниже показан актуальный интерфейс версии 2.4. Нажмите на изображение, чтобы открыть его крупно.</p>
+          </div>
+
+          <figure class="screenshot-card">
+            <button class="screenshot-open" type="button" data-open-image aria-label="Открыть скриншот крупно">
+              <img src="assets/massmailer-interface.png" alt="Интерфейс Mass Mailer 2.4 в Outlook Classic">
+              <span class="zoom-hint">↗ Открыть крупно</span>
+            </button>
+            <figcaption>
+              <strong>Mass Mailer 2.4.</strong> Слева — шаблон письма, справа — отправитель и маршрутизация, ниже — получатели и действия рассылки.
+            </figcaption>
+          </figure>
+
+          <div class="feature-grid">
+            <article class="feature-card"><span class="num">01</span><h3>Email Template</h3><p>Тема, CC, BCC, количество вложений, превью письма и команды редактирования шаблона.</p></article>
+            <article class="feature-card"><span class="num">02</span><h3>Sender & Folders</h3><p>FROM наследуется из исходного письма. Папки создания и последующей отправки выбираются отдельно.</p></article>
+            <article class="feature-card"><span class="num">03</span><h3>Recipients</h3><p>Список адресов, пресеты, импорт TXT/CSV, очистка и живой счётчик валидных адресов, ошибок и дублей.</p></article>
+            <article class="feature-card"><span class="num">04</span><h3>Mailing Mode</h3><p><strong>Create drafts</strong> создаёт черновики. <strong>Send now</strong> отправляет письма сразу после подтверждения.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-quickstart">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">БЫСТРЫЙ СТАРТ</span>
+            <h2>Рассылка за 7 шагов</h2>
+            <p>Если Mass Mailer уже установлен, этого сценария достаточно для обычной работы.</p>
+          </div>
+
+          <ol class="timeline">
+            <li><span>1</span><div><h3>Создайте письмо-шаблон</h3><p>В Outlook Classic создайте новое письмо или откройте несохранённый/неотправленный черновик. Заполните тему, текст, подпись, CC/BCC и выберите нужный <strong>From</strong>.</p></div></li>
+            <li><span>2</span><div><h3>Запустите <code>MassMail_Open</code></h3><p>Макрос возьмёт активное открытое письмо; если отдельное окно письма не активно — попробует использовать один выбранный элемент в Outlook.</p></div></li>
+            <li><span>3</span><div><h3>Проверьте шаблон</h3><p>Убедитесь, что в блоке Email Template корректны Subject, CC, BCC, вложения и превью, а справа отображается правильный From.</p></div></li>
+            <li><span>4</span><div><h3>Добавьте получателей</h3><p>Вставьте адреса вручную, выберите Preset или используйте Import. Дождитесь корректного счётчика <strong>Valid / Invalid / Duplicates</strong>.</p></div></li>
+            <li><span>5</span><div><h3>Выберите режим</h3><p>Для первой проверки и крупных пакетов используйте <strong>Create drafts</strong>. Для прямой отправки — <strong>Send now</strong>.</p></div></li>
+            <li><span>6</span><div><h3>Нажмите Create Mailing</h3><p>Проверьте сводку подтверждения. Mass Mailer создаст по одному отдельному письму на каждый валидный уникальный TO.</p></div></li>
+            <li><span>7</span><div><h3>Если создали черновики — проверьте и отправьте</h3><p>Откройте несколько подготовленных писем, проверьте From/TO/CC/BCC/вложения, затем нажмите <strong>Send Prepared Drafts</strong>.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="ru-requirements">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ПЕРЕД УСТАНОВКОЙ</span>
+            <h2>Требования и совместимость</h2>
+          </div>
+
+          <div class="check-grid">
+            <div class="check-card"><strong>Outlook Classic for Windows</strong><p>Макрос использует классическую Outlook Object Model и VBA. Новый Outlook для Windows для этого сценария не подходит.</p></div>
+            <div class="check-card"><strong>VBA Project</strong><p>Должен быть доступен редактор VBA по <kbd>Alt</kbd> + <kbd>F11</kbd>. В корпоративной среде доступ может регулироваться политиками IT.</p></div>
+            <div class="check-card"><strong>Разрешённые макросы</strong><p>Используйте настройки безопасности вашей организации. Не рекомендуется глобально включать все макросы только ради установки.</p></div>
+            <div class="check-card"><strong>Почтовый аккаунт Outlook</strong><p>Письма физически отправляет Outlook через настроенный профиль. Лимиты Exchange/SMTP и серверный throttling продолжают действовать.</p></div>
+          </div>
+
+          <div class="callout callout-warning">
+            <strong>Перед массовой рассылкой:</strong> обязательно выполните тест на 1–2 своих адресах и проверьте фактический From, TO, CC/BCC, тело письма и вложения.
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-install">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">УСТАНОВКА</span>
+            <h2>Чистая установка с нуля</h2>
+            <p>В комплекте нужны два элемента: стандартный VBA-модуль движка и пустая UserForm с кодом интерфейса.</p>
+          </div>
+
+          <div class="install-layout">
+            <div class="steps">
+              <div class="step"><div class="step-index">1</div><div><h3>Откройте VBA Editor</h3><p>В Outlook Classic нажмите <kbd>Alt</kbd> + <kbd>F11</kbd>.</p></div></div>
+              <div class="step"><div class="step-index">2</div><div><h3>Сделайте резервную копию</h3><p>Если у вас уже есть VBA-код Outlook, экспортируйте существующие модули или сохраните копию проекта перед изменениями.</p></div></div>
+              <div class="step"><div class="step-index">3</div><div><h3>Импортируйте движок</h3><p>В редакторе VBA выберите <strong>File → Import File…</strong> и импортируйте <code>MassMailer_Engine_v2_4.bas</code>. В проекте появится стандартный модуль с процедурой <code>MassMail_Open</code>.</p></div></div>
+              <div class="step"><div class="step-index">4</div><div><h3>Создайте UserForm</h3><p>Выберите <strong>Insert → UserForm</strong>. В окне Properties (<kbd>F4</kbd>) установите точное имя формы:</p><div class="code-row"><code>frmMassMail</code><button class="copy-btn" type="button" data-copy="frmMassMail">Copy</button></div></div></div>
+              <div class="step"><div class="step-index">5</div><div><h3>Оставьте дизайнер формы пустым</h3><p>Не добавляйте кнопки, поля или подписи вручную. Mass Mailer создаёт все элементы интерфейса программно во время запуска.</p></div></div>
+              <div class="step"><div class="step-index">6</div><div><h3>Вставьте код формы</h3><p>Правой кнопкой по <code>frmMassMail</code> → <strong>View Code</strong>. Полностью замените содержимое кодом из <code>frmMassMail_v2_4_COMPACT_HELP_code.txt</code>.</p></div></div>
+              <div class="step"><div class="step-index">7</div><div><h3>Скомпилируйте проект</h3><p>Выберите <strong>Debug → Compile VBAProject</strong>. Если команда проходит без сообщения об ошибке — структура установлена корректно.</p></div></div>
+              <div class="step"><div class="step-index">8</div><div><h3>Сохраните и перезапустите Outlook</h3><p>Сохраните VBAProject, закройте Outlook полностью и запустите Outlook Classic снова.</p></div></div>
+              <div class="step"><div class="step-index">9</div><div><h3>Запустите тест</h3><p>Создайте тестовое письмо, затем запустите макрос <code>MassMail_Open</code>. Для первой проверки используйте режим Create drafts и 1–2 адреса.</p></div></div>
+            </div>
+
+            <aside class="side-card">
+              <h3>Опционально: кнопка запуска в Outlook</h3>
+              <p>Чтобы не открывать список макросов каждый раз, добавьте <code>MassMail_Open</code> на Quick Access Toolbar.</p>
+              <ol class="mini-list">
+                <li>File → Options</li>
+                <li>Quick Access Toolbar</li>
+                <li>Choose commands from → Macros</li>
+                <li>Выберите макрос, заканчивающийся на <code>MassMail_Open</code></li>
+                <li>Add → OK</li>
+              </ol>
+              <p class="muted">Префикс имени проекта может отличаться на разных компьютерах.</p>
+            </aside>
+          </div>
+
+          <details class="details">
+            <summary>Обновление уже установленной версии</summary>
+            <div class="details-body">
+              <p>Если Mass Mailer уже установлен, обычно достаточно заменить код стандартного модуля и код <code>frmMassMail</code>, затем выполнить <strong>Debug → Compile VBAProject</strong> и перезапустить Outlook.</p>
+              <p><strong>Важно:</strong> не оставляйте одновременно две версии движка с одинаковыми публичными процедурами — это может вызвать ошибку Ambiguous name detected.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="ru-template">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ШАБЛОН</span>
+            <h2>Как Mass Mailer получает письмо</h2>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3>Источник шаблона</h3>
+              <p>При запуске <code>MassMail_Open</code> используется приоритет:</p>
+              <ol class="normal-list">
+                <li>Текущее письмо в активном отдельном окне Outlook.</li>
+                <li>Если его нет — ровно один выбранный элемент в основном окне Outlook.</li>
+              </ol>
+              <p>Письмо должно быть <strong>неотправленным</strong>. Уже отправленное письмо нельзя использовать как активный шаблон.</p>
+            </div>
+            <div>
+              <h3>Что сохраняется в шаблоне</h3>
+              <ul class="normal-list">
+                <li>Subject и тело письма.</li>
+                <li>Форматирование/подпись, сохранённые Outlook в OFT.</li>
+                <li>CC и BCC.</li>
+                <li>Вложения.</li>
+                <li>Контекст отправителя / From.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Ключевой принцип:</strong> адреса из поля TO исходного письма не используются как общий список рассылки. Для каждого созданного письма TO очищается и заменяется ровно одним адресом из блока Recipients. CC и BCC остаются из шаблона.
+          </div>
+
+          <h3 class="subheading">Кнопки Email Template</h3>
+          <div class="action-table">
+            <div class="action-row"><span class="ui-chip">Edit</span><p>Открывает рабочую копию шаблона в Outlook. Внесите изменения в тему, текст, From и т.д., после чего нажмите <strong>Refresh</strong> в Mass Mailer.</p></div>
+            <div class="action-row"><span class="ui-chip">Attach</span><p>Добавляет выбранные файлы непосредственно в сохранённый snapshot шаблона.</p></div>
+            <div class="action-row"><span class="ui-chip">Refresh</span><p>Считывает заново текущее открытое письмо: обновляет snapshot, превью и контекст отправителя.</p></div>
+            <div class="action-row"><span class="ui-chip">?</span><p>Открывает текущую страницу инструкции: <code>https://znetw.ru/massmailerinfo</code>.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-sender-folders">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">FROM И ПАПКИ</span>
+            <h2>Отправитель и маршрутизация</h2>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card">
+              <h3>From</h3>
+              <p>Отправитель не выбирается вручную в интерфейсе Mass Mailer. Он наследуется из исходного письма-шаблона.</p>
+              <p>Если справа отображается <strong>(Outlook default account)</strong>, Outlook не зафиксировал отдельный SendUsingAccount и будет использовать контекст/default account профиля.</p>
+              <p><strong>Нужно изменить отправителя?</strong> Измените поле From в открытом письме и нажмите Refresh.</p>
+            </article>
+
+            <article class="info-card">
+              <h3>Create</h3>
+              <p>Папка, в которой Mass Mailer создаёт подготовленные сообщения. По умолчанию выбирается Drafts, связанная с контекстом исходного письма, с fallback на стандартные Drafts Outlook.</p>
+              <p>Кнопка <strong>Change</strong> открывает Outlook Folder Picker.</p>
+            </article>
+
+            <article class="info-card">
+              <h3>Send</h3>
+              <p>Папка, которую сканирует <strong>Send Prepared Drafts</strong>. Макрос ищет только собственные помеченные Mass Mailer сообщения в этой папке.</p>
+              <p>Это позволяет использовать отдельную очередь и не сканировать всю обычную папку Drafts.</p>
+            </article>
+
+            <article class="info-card">
+              <h3>Same as create</h3>
+              <p>Устанавливает одну и ту же папку для создания и последующей отправки. Для больших рассылок это рекомендуемый сценарий.</p>
+              <p>Например, можно создать отдельную почтовую папку <code>Mass Mailer Queue</code>.</p>
+            </article>
+          </div>
+
+          <div class="callout callout-note">
+            Выбор папок действует в текущей сессии Mass Mailer. При закрытии формы контекст сессии очищается; при следующем запуске маршрутизация определяется заново.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ru-recipients">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ПОЛУЧАТЕЛИ</span>
+            <h2>Форматы адресов, импорт и проверка</h2>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3>Можно вставлять</h3>
+              <div class="code-block">
+                <code>sales@example.com</code>
+                <code>John Smith &lt;john@example.com&gt;</code>
+                <code>mailto:office@example.com</code>
+                <code>one@example.com; two@example.com</code>
+                <code>one@example.com, two@example.com</code>
+              </div>
+              <p>Разделителями могут быть новая строка, точка с запятой, запятая или табуляция.</p>
+            </div>
+
+            <div>
+              <h3>Счётчик</h3>
+              <div class="metric-list">
+                <div><strong>Valid</strong><span>уникальные адреса, которые войдут в рассылку</span></div>
+                <div><strong>Invalid</strong><span>значения, не прошедшие проверку формата</span></div>
+                <div><strong>Duplicates</strong><span>повторные адреса, автоматически исключённые</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subheading">Import TXT / CSV</h3>
+          <p>Кнопка Import позволяет выбрать файл <code>.txt</code> или <code>.csv</code>. Текст добавляется к уже существующему списку. В первую очередь используется UTF‑8; предусмотрен fallback для обычного текстового чтения.</p>
+
+          <div class="callout callout-warning">
+            Если присутствуют Invalid, перед стартом Mass Mailer покажет список первых проблемных значений и попросит подтверждение. Невалидные адреса не отправляются.
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-presets">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">PRESETS</span>
+            <h2>Сохранённые списки получателей</h2>
+          </div>
+
+          <div class="three-col">
+            <div class="mini-card"><h3>Save</h3><p>Сохраняет текущий список под выбранным/введённым именем. Перед сохранением удаляются дубли и пропускаются невалидные значения.</p></div>
+            <div class="mini-card"><h3>Delete</h3><p>Удаляет выбранный preset после подтверждения.</p></div>
+            <div class="mini-card"><h3>Автозагрузка</h3><p>Имя последнего использованного preset запоминается и при следующем запуске может быть загружено автоматически.</p></div>
+          </div>
+
+          <div class="path-card">
+            <span>Папка presets</span>
+            <div class="code-row wide"><code>%APPDATA%\OutlookMassMailer\Presets</code><button class="copy-btn" type="button" data-copy="%APPDATA%\OutlookMassMailer\Presets">Copy</button></div>
+            <span>Последний preset</span>
+            <div class="code-row wide"><code>%APPDATA%\OutlookMassMailer\last-preset.txt</code><button class="copy-btn" type="button" data-copy="%APPDATA%\OutlookMassMailer\last-preset.txt">Copy</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ru-modes">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">РЕЖИМЫ</span>
+            <h2>Create drafts или Send now</h2>
+          </div>
+
+          <div class="compare">
+            <article class="compare-card recommended">
+              <div class="tag">Рекомендуется для проверки</div>
+              <h3>Create drafts</h3>
+              <p>Mass Mailer создаёт индивидуальные письма в папке Create, но не отправляет их.</p>
+              <ul class="normal-list">
+                <li>Можно визуально проверить несколько писем.</li>
+                <li>Удобно для больших пакетов.</li>
+                <li>После проверки используется Send Prepared Drafts.</li>
+              </ul>
+            </article>
+
+            <article class="compare-card">
+              <div class="tag neutral">Прямая отправка</div>
+              <h3>Send now</h3>
+              <p>Каждое письмо после подготовки передаётся Outlook на отправку.</p>
+              <ul class="normal-list">
+                <li>Есть отдельное подтверждение перед стартом.</li>
+                <li>Для больших пакетов показывается дополнительное предупреждение.</li>
+                <li>Серверные лимиты Outlook/Exchange не обходятся.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-drafts">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">SEND PREPARED DRAFTS</span>
+            <h2>Как безопасно отправляются подготовленные письма</h2>
+          </div>
+
+          <p>При генерации Mass Mailer добавляет к своим письмам специальное пользовательское MAPI-свойство <code>MassMailerGenerated</code>. Кнопка Send Prepared Drafts работает только с такими письмами в выбранной папке Send.</p>
+
+          <div class="flow">
+            <div><span>1</span><strong>Выбранная папка Send</strong><small>Сканируется только она</small></div>
+            <div class="arrow">→</div>
+            <div><span>2</span><strong>MassMailerGenerated</strong><small>Отбираются только помеченные письма</small></div>
+            <div class="arrow">→</div>
+            <div><span>3</span><strong>Проверка</strong><small>Не отправлено, есть получатели, не inline response</small></div>
+            <div class="arrow">→</div>
+            <div><span>4</span><strong>Send</strong><small>Передача письма Outlook</small></div>
+          </div>
+
+          <div class="callout">
+            Обычные черновики Outlook без метки Mass Mailer не должны попадать в эту массовую отправку.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ru-performance">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ПРОИЗВОДИТЕЛЬНОСТЬ</span>
+            <h2>Что происходит при большой рассылке</h2>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <h3>Оптимизированный пакет</h3>
+              <p>Движок загружает OFT-шаблон один раз, сохраняет базовое письмо и для последующих адресатов использует <code>MailItem.Copy</code>. Это уменьшает количество тяжёлых COM/MAPI операций.</p>
+              <p>Прогресс UI обновляется периодически, а не после каждой отдельной операции.</p>
+            </div>
+            <div>
+              <h3>Что всё равно ограничивает скорость</h3>
+              <ul class="normal-list">
+                <li>Exchange / SMTP throttling.</li>
+                <li>Сетевые задержки.</li>
+                <li>Антиспам-политики сервера.</li>
+                <li>Размер и количество вложений.</li>
+                <li>Производительность локального Outlook-профиля.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="muted">Если быстрый batch-copy не удаётся безопасно использовать, в коде предусмотрен более консервативный per-item fallback.</p>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-safety">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">КОНТРОЛЬ</span>
+            <h2>Правила безопасной работы</h2>
+          </div>
+
+          <div class="safety-grid">
+            <div><strong>01</strong><p>Всегда начинайте новый шаблон с правильного From.</p></div>
+            <div><strong>02</strong><p>После Edit обязательно нажимайте Refresh, если изменили содержимое или From.</p></div>
+            <div><strong>03</strong><p>Перед большой рассылкой создайте 1–2 тестовых черновика.</p></div>
+            <div><strong>04</strong><p>Следите за Invalid и Duplicates до запуска.</p></div>
+            <div><strong>05</strong><p>Для большой очереди используйте отдельную папку Mass Mailer Queue.</p></div>
+            <div><strong>06</strong><p>Не закрывайте форму во время обработки: Mass Mailer блокирует закрытие до завершения операции.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ru-troubleshooting">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">TROUBLESHOOTING</span>
+            <h2>Если что-то не работает</h2>
+          </div>
+
+          <div class="faq">
+            <details open>
+              <summary>Subject: unavailable / Template snapshot is unavailable</summary>
+              <div><p>Текущий snapshot шаблона недоступен. Закройте Mass Mailer, откройте или выберите корректный неотправленный email и запустите <code>MassMail_Open</code> снова.</p></div>
+            </details>
+            <details>
+              <summary>Макрос пишет “Open a new email or select an unsent draft first”</summary>
+              <div><p>Mass Mailer не нашёл подходящее письмо. Откройте новое письмо в отдельном окне либо выделите ровно один неотправленный черновик в Outlook.</p></div>
+            </details>
+            <details>
+              <summary>В поле From отображается не тот аккаунт</summary>
+              <div><p>Откройте рабочую копию через Edit, выберите нужное поле From в самом Outlook и нажмите Refresh. Mass Mailer берёт отправителя из письма-шаблона, а не из отдельного списка.</p></div>
+            </details>
+            <details>
+              <summary>Send Prepared Drafts показывает (0)</summary>
+              <div><p>Проверьте выбранную папку Send. В ней должны находиться неотправленные письма, созданные Mass Mailer и содержащие его MAPI-метку. При необходимости нажмите Same as create.</p></div>
+            </details>
+            <details>
+              <summary>Outlook сообщает об inline response / письмо открыто в Reading Pane</summary>
+              <div><p>Outlook не позволяет VBA отправить активный inline response. Переключитесь на другое письмо или закройте редактирование в Reading Pane и повторите Send Prepared Drafts.</p></div>
+            </details>
+            <details>
+              <summary>После вставки адресов есть Invalid</summary>
+              <div><p>Проверьте лишние комментарии, пробелы внутри адреса, отсутствие доменной части или другие символы. Форматы <code>Name &lt;email@example.com&gt;</code> и <code>mailto:email@example.com</code> поддерживаются.</p></div>
+            </details>
+            <details>
+              <summary>Debug → Compile выдаёт Ambiguous name detected</summary>
+              <div><p>Вероятнее всего в VBAProject одновременно находятся старый и новый модули с одинаковыми процедурами. Оставьте одну актуальную версию Mass Mailer.</p></div>
+            </details>
+            <details>
+              <summary>Макрос не запускается вообще</summary>
+              <div><p>Проверьте, что используется Outlook Classic, VBA разрешён политиками безопасности и проект компилируется без ошибок. В корпоративной среде ограничения могут задаваться администратором.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="ru-data">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">ДАННЫЕ</span>
+            <h2>Какие локальные файлы создаёт Mass Mailer</h2>
+          </div>
+
+          <div class="data-table">
+            <div class="data-row"><strong>Presets</strong><code>%APPDATA%\OutlookMassMailer\Presets\*.txt</code><span>Постоянно, пока пользователь не удалит</span></div>
+            <div class="data-row"><strong>Last preset</strong><code>%APPDATA%\OutlookMassMailer\last-preset.txt</code><span>Имя последнего preset</span></div>
+            <div class="data-row"><strong>Template snapshot</strong><code>%TEMP%\MassMailer_*.oft</code><span>Временный OFT; старые файлы очищаются механизмом Mass Mailer</span></div>
+          </div>
+
+          <p class="muted">Списки presets хранятся локально в профиле Windows пользователя.</p>
+        </div>
+      </section>
+
+      <section class="section" id="ru-faq">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">FAQ</span>
+            <h2>Частые вопросы</h2>
+          </div>
+
+          <div class="faq">
+            <details><summary>Получатели видят друг друга?</summary><div><p>Нет, если вы используете список Recipients по назначению: Mass Mailer создаёт отдельное письмо для каждого TO. Однако CC/BCC из шаблона сохраняются и будут одинаковыми во всех письмах.</p></div></details>
+            <details><summary>Можно ли использовать одну папку и для создания, и для отправки?</summary><div><p>Да. Для этого есть Same as create. Это особенно удобно с отдельной папкой Mass Mailer Queue.</p></div></details>
+            <details><summary>Можно ли менять шаблон после запуска формы?</summary><div><p>Да. Нажмите Edit, измените письмо в Outlook и затем Refresh. Без Refresh изменения не гарантированно попадут в snapshot.</p></div></details>
+            <details><summary>Можно ли закрыть Mass Mailer во время обработки?</summary><div><p>Нет. Пока идёт пакетная операция, форма блокирует закрытие, чтобы не оборвать сессию.</p></div></details>
+            <details><summary>Mass Mailer обходит лимиты Exchange?</summary><div><p>Нет. Макрос ускоряет локальную генерацию сообщений, но серверные ограничения, throttling и антиспам-политики остаются в силе.</p></div></details>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div class="language-content only-en" id="en-content">
+
+      <section class="section" id="en-overview">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">INTERFACE</span>
+            <h2>Mass Mailer interface</h2>
+            <p>The screenshot below shows the current 2.4 interface. Click it to enlarge.</p>
+          </div>
+
+          <figure class="screenshot-card">
+            <button class="screenshot-open" type="button" data-open-image aria-label="Open interface screenshot">
+              <img src="assets/massmailer-interface.png" alt="Mass Mailer 2.4 interface in Outlook Classic">
+              <span class="zoom-hint">↗ Open full size</span>
+            </button>
+            <figcaption><strong>Mass Mailer 2.4.</strong> Template on the left, sender and routing on the right, recipients and mailing actions below.</figcaption>
+          </figure>
+
+          <div class="feature-grid">
+            <article class="feature-card"><span class="num">01</span><h3>Email Template</h3><p>Subject, CC, BCC, attachment count, body preview and template-editing actions.</p></article>
+            <article class="feature-card"><span class="num">02</span><h3>Sender & Folders</h3><p>FROM is inherited from the source email. Creation and prepared-draft source folders are controlled separately.</p></article>
+            <article class="feature-card"><span class="num">03</span><h3>Recipients</h3><p>Recipient list, presets, TXT/CSV import, clearing and live Valid / Invalid / Duplicates counters.</p></article>
+            <article class="feature-card"><span class="num">04</span><h3>Mailing Mode</h3><p><strong>Create drafts</strong> prepares messages. <strong>Send now</strong> submits them to Outlook immediately.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-quickstart">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">QUICK START</span>
+            <h2>Send a mailing in 7 steps</h2>
+            <p>If Mass Mailer is already installed, this is the standard operating workflow.</p>
+          </div>
+
+          <ol class="timeline">
+            <li><span>1</span><div><h3>Create the source email</h3><p>In Outlook Classic, create a new message or open an unsent draft. Set the subject, body, signature, CC/BCC and the required <strong>From</strong> account.</p></div></li>
+            <li><span>2</span><div><h3>Run <code>MassMail_Open</code></h3><p>The macro uses the active Inspector email first; if none is active, it tries to use one selected Outlook item.</p></div></li>
+            <li><span>3</span><div><h3>Verify the template</h3><p>Check Subject, CC, BCC, attachments, body preview and the displayed From identity.</p></div></li>
+            <li><span>4</span><div><h3>Add recipients</h3><p>Paste addresses, load a Preset or use Import. Review <strong>Valid / Invalid / Duplicates</strong>.</p></div></li>
+            <li><span>5</span><div><h3>Select the mode</h3><p>Use <strong>Create drafts</strong> for verification and large batches. Use <strong>Send now</strong> for immediate submission.</p></div></li>
+            <li><span>6</span><div><h3>Click Create Mailing</h3><p>Review the confirmation summary. Mass Mailer creates one separate message for each valid unique TO recipient.</p></div></li>
+            <li><span>7</span><div><h3>If you created drafts, verify and send them</h3><p>Open a few generated messages, check From/TO/CC/BCC/attachments, then use <strong>Send Prepared Drafts</strong>.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="en-requirements">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">BEFORE INSTALLATION</span>
+            <h2>Requirements and compatibility</h2>
+          </div>
+
+          <div class="check-grid">
+            <div class="check-card"><strong>Outlook Classic for Windows</strong><p>The macro relies on the classic Outlook Object Model and VBA. New Outlook for Windows is not suitable for this VBA workflow.</p></div>
+            <div class="check-card"><strong>VBA Project access</strong><p>The VBA editor must be available through <kbd>Alt</kbd> + <kbd>F11</kbd>. Corporate IT policies may restrict access.</p></div>
+            <div class="check-card"><strong>Macro security</strong><p>Follow your organization's security policy. Do not globally enable all macros solely to install this tool.</p></div>
+            <div class="check-card"><strong>Configured Outlook account</strong><p>Outlook performs the actual submission. Exchange/SMTP quotas, throttling and server policies still apply.</p></div>
+          </div>
+
+          <div class="callout callout-warning"><strong>Before a large mailing:</strong> run a 1–2 address test and verify the actual From, TO, CC/BCC, body and attachments.</div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-install">
+        <div class="shell">
+          <div class="section-heading">
+            <span class="section-kicker">INSTALLATION</span>
+            <h2>Clean installation</h2>
+            <p>The package contains two logical components: the standard VBA engine module and an empty UserForm whose controls are built at runtime.</p>
+          </div>
+
+          <div class="install-layout">
+            <div class="steps">
+              <div class="step"><div class="step-index">1</div><div><h3>Open the VBA Editor</h3><p>In Outlook Classic press <kbd>Alt</kbd> + <kbd>F11</kbd>.</p></div></div>
+              <div class="step"><div class="step-index">2</div><div><h3>Back up your current VBA project</h3><p>If you already use Outlook VBA, export the existing modules or otherwise save a backup before making changes.</p></div></div>
+              <div class="step"><div class="step-index">3</div><div><h3>Import the engine</h3><p>Choose <strong>File → Import File…</strong> and import <code>MassMailer_Engine_v2_4.bas</code>. The standard module contains the public entry point <code>MassMail_Open</code>.</p></div></div>
+              <div class="step"><div class="step-index">4</div><div><h3>Create a UserForm</h3><p>Choose <strong>Insert → UserForm</strong>. In Properties (<kbd>F4</kbd>) set the exact form name:</p><div class="code-row"><code>frmMassMail</code><button class="copy-btn" type="button" data-copy="frmMassMail">Copy</button></div></div></div>
+              <div class="step"><div class="step-index">5</div><div><h3>Keep the form designer empty</h3><p>Do not manually add controls. Mass Mailer creates the complete interface programmatically during UserForm initialization.</p></div></div>
+              <div class="step"><div class="step-index">6</div><div><h3>Paste the form code</h3><p>Right-click <code>frmMassMail</code> → <strong>View Code</strong> and replace all form code with <code>frmMassMail_v2_4_COMPACT_HELP_code.txt</code>.</p></div></div>
+              <div class="step"><div class="step-index">7</div><div><h3>Compile</h3><p>Choose <strong>Debug → Compile VBAProject</strong>. If compilation completes without an error dialog, the structure is valid.</p></div></div>
+              <div class="step"><div class="step-index">8</div><div><h3>Save and restart Outlook</h3><p>Save the VBA project, exit Outlook completely, then start Outlook Classic again.</p></div></div>
+              <div class="step"><div class="step-index">9</div><div><h3>Run a test</h3><p>Create a test email and run <code>MassMail_Open</code>. For the first test, use Create drafts with only 1–2 addresses.</p></div></div>
+            </div>
+
+            <aside class="side-card">
+              <h3>Optional: add a launch button</h3>
+              <p>Add <code>MassMail_Open</code> to Outlook's Quick Access Toolbar for one-click access.</p>
+              <ol class="mini-list">
+                <li>File → Options</li>
+                <li>Quick Access Toolbar</li>
+                <li>Choose commands from → Macros</li>
+                <li>Select the macro ending in <code>MassMail_Open</code></li>
+                <li>Add → OK</li>
+              </ol>
+              <p class="muted">The VBA project prefix may differ between computers.</p>
+            </aside>
+          </div>
+
+          <details class="details">
+            <summary>Updating an existing installation</summary>
+            <div class="details-body">
+              <p>Normally, replace the standard Mass Mailer module and the <code>frmMassMail</code> code, run <strong>Debug → Compile VBAProject</strong>, save and restart Outlook.</p>
+              <p><strong>Important:</strong> do not keep two engine versions containing the same public procedure names; VBA may report “Ambiguous name detected”.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="en-template">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">TEMPLATE</span><h2>How the source email is captured</h2></div>
+
+          <div class="two-col">
+            <div>
+              <h3>Source priority</h3>
+              <ol class="normal-list">
+                <li>The email in the active Outlook Inspector window.</li>
+                <li>If there is no active Inspector: exactly one selected Outlook item.</li>
+              </ol>
+              <p>The message must be <strong>unsent</strong>. A sent message cannot be used as the active template.</p>
+            </div>
+            <div>
+              <h3>Template content</h3>
+              <ul class="normal-list">
+                <li>Subject and body.</li>
+                <li>Outlook formatting/signature stored in the OFT.</li>
+                <li>CC and BCC.</li>
+                <li>Attachments.</li>
+                <li>Sender / From context.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout"><strong>Core rule:</strong> source-email TO addresses are not used as the mailing list. For each generated message, TO is replaced with exactly one recipient from the Recipients box. Template CC and BCC are preserved.</div>
+
+          <h3 class="subheading">Email Template buttons</h3>
+          <div class="action-table">
+            <div class="action-row"><span class="ui-chip">Edit</span><p>Opens a working copy of the template in Outlook. After changing subject, body, From, etc., press <strong>Refresh</strong>.</p></div>
+            <div class="action-row"><span class="ui-chip">Attach</span><p>Adds selected files directly to the stored template snapshot.</p></div>
+            <div class="action-row"><span class="ui-chip">Refresh</span><p>Captures the currently open email again, including the template snapshot and sender context.</p></div>
+            <div class="action-row"><span class="ui-chip">?</span><p>Opens this guide at <code>https://znetw.ru/massmailerinfo</code>.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-sender-folders">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">FROM & ROUTING</span><h2>Sender and folders</h2></div>
+
+          <div class="info-grid">
+            <article class="info-card"><h3>From</h3><p>The sender is not manually selected in Mass Mailer. It is inherited from the source/template email.</p><p>If the UI shows <strong>(Outlook default account)</strong>, Outlook did not expose a separate SendUsingAccount value and will use the profile/default sending context.</p><p>To change the sender, change From in the Outlook template and press Refresh.</p></article>
+            <article class="info-card"><h3>Create</h3><p>The folder where generated messages are created. The initial route normally follows the source-email account's Drafts folder, with a fallback to Outlook's default Drafts.</p><p><strong>Change</strong> opens Outlook's Folder Picker.</p></article>
+            <article class="info-card"><h3>Send</h3><p>The folder scanned by <strong>Send Prepared Drafts</strong>. Only Mass Mailer-tagged messages in this selected folder are considered.</p></article>
+            <article class="info-card"><h3>Same as create</h3><p>Uses the same folder for creation and later prepared-draft sending. A dedicated <code>Mass Mailer Queue</code> folder is a clean setup for large mailings.</p></article>
+          </div>
+
+          <div class="callout callout-note">Folder choices are session context. Closing the form clears the session and routing is established again the next time Mass Mailer starts.</div>
+        </div>
+      </section>
+
+      <section class="section" id="en-recipients">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">RECIPIENTS</span><h2>Accepted formats, import and validation</h2></div>
+
+          <div class="two-col">
+            <div>
+              <h3>Accepted examples</h3>
+              <div class="code-block">
+                <code>sales@example.com</code>
+                <code>John Smith &lt;john@example.com&gt;</code>
+                <code>mailto:office@example.com</code>
+                <code>one@example.com; two@example.com</code>
+                <code>one@example.com, two@example.com</code>
+              </div>
+              <p>New lines, semicolons, commas and tabs are accepted as separators.</p>
+            </div>
+            <div>
+              <h3>Counters</h3>
+              <div class="metric-list">
+                <div><strong>Valid</strong><span>unique addresses included in the batch</span></div>
+                <div><strong>Invalid</strong><span>values rejected by email-format validation</span></div>
+                <div><strong>Duplicates</strong><span>repeated addresses automatically removed</span></div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="subheading">TXT / CSV import</h3>
+          <p>Import reads a <code>.txt</code> or <code>.csv</code> file and appends its content to the current list. UTF‑8 is attempted first, with a plain-text fallback.</p>
+
+          <div class="callout callout-warning">If invalid values exist, Mass Mailer shows a preview of the problematic values and asks whether to continue. Invalid values are skipped.</div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-presets">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">PRESETS</span><h2>Saved recipient lists</h2></div>
+
+          <div class="three-col">
+            <div class="mini-card"><h3>Save</h3><p>Saves the current list under the chosen name. Duplicates are removed and invalid values are excluded before writing.</p></div>
+            <div class="mini-card"><h3>Delete</h3><p>Deletes the selected preset after confirmation.</p></div>
+            <div class="mini-card"><h3>Auto-load</h3><p>The last-used preset name is stored and can be loaded automatically on the next launch.</p></div>
+          </div>
+
+          <div class="path-card">
+            <span>Preset directory</span>
+            <div class="code-row wide"><code>%APPDATA%\OutlookMassMailer\Presets</code><button class="copy-btn" type="button" data-copy="%APPDATA%\OutlookMassMailer\Presets">Copy</button></div>
+            <span>Last preset</span>
+            <div class="code-row wide"><code>%APPDATA%\OutlookMassMailer\last-preset.txt</code><button class="copy-btn" type="button" data-copy="%APPDATA%\OutlookMassMailer\last-preset.txt">Copy</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="en-modes">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">MODES</span><h2>Create drafts vs Send now</h2></div>
+
+          <div class="compare">
+            <article class="compare-card recommended">
+              <div class="tag">Recommended for verification</div>
+              <h3>Create drafts</h3>
+              <p>Creates individual messages in the selected Create folder without sending them.</p>
+              <ul class="normal-list"><li>Review representative messages first.</li><li>Good for large batches.</li><li>Use Send Prepared Drafts after verification.</li></ul>
+            </article>
+            <article class="compare-card">
+              <div class="tag neutral">Immediate submission</div>
+              <h3>Send now</h3>
+              <p>Each prepared message is submitted through Outlook.</p>
+              <ul class="normal-list"><li>Requires explicit confirmation.</li><li>Large batches trigger an additional warning.</li><li>Does not bypass server-side limits.</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-drafts">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">SEND PREPARED DRAFTS</span><h2>How prepared messages are selected safely</h2></div>
+
+          <p>Generated messages receive a custom MAPI property named <code>MassMailerGenerated</code>. Send Prepared Drafts scans only the selected Send folder and only processes messages carrying this Mass Mailer tag.</p>
+
+          <div class="flow">
+            <div><span>1</span><strong>Selected Send folder</strong><small>Only this folder is scanned</small></div>
+            <div class="arrow">→</div>
+            <div><span>2</span><strong>MassMailerGenerated</strong><small>Only tagged items are selected</small></div>
+            <div class="arrow">→</div>
+            <div><span>3</span><strong>Checks</strong><small>Unsent, has recipients, not active inline response</small></div>
+            <div class="arrow">→</div>
+            <div><span>4</span><strong>Send</strong><small>Outlook submits the message</small></div>
+          </div>
+
+          <div class="callout">Normal Outlook drafts without the Mass Mailer tag are not intended to be included in this batch operation.</div>
+        </div>
+      </section>
+
+      <section class="section" id="en-performance">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">PERFORMANCE</span><h2>Large-batch behavior</h2></div>
+
+          <div class="two-col">
+            <div>
+              <h3>Optimized batch engine</h3>
+              <p>The engine loads the OFT once, saves one base message and uses <code>MailItem.Copy</code> for subsequent recipients, reducing expensive COM/MAPI work.</p>
+              <p>UI progress updates are throttled rather than executed after every single operation.</p>
+            </div>
+            <div>
+              <h3>Remaining bottlenecks</h3>
+              <ul class="normal-list"><li>Exchange / SMTP throttling.</li><li>Network latency.</li><li>Server anti-spam policy.</li><li>Attachment size and count.</li><li>Local Outlook profile performance.</li></ul>
+            </div>
+          </div>
+          <p class="muted">A conservative per-item fallback exists if the fast batch-copy route cannot be used safely.</p>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-safety">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">CONTROL</span><h2>Safe operating rules</h2></div>
+          <div class="safety-grid">
+            <div><strong>01</strong><p>Start with the correct From identity in the source email.</p></div>
+            <div><strong>02</strong><p>After Edit, press Refresh whenever content or From changed.</p></div>
+            <div><strong>03</strong><p>Create 1–2 test drafts before a large batch.</p></div>
+            <div><strong>04</strong><p>Review Invalid and Duplicates before starting.</p></div>
+            <div><strong>05</strong><p>Use a dedicated Mass Mailer Queue folder for a large queue.</p></div>
+            <div><strong>06</strong><p>Do not close the form while processing; Mass Mailer blocks closing until the operation finishes.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="en-troubleshooting">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">TROUBLESHOOTING</span><h2>Common problems</h2></div>
+          <div class="faq">
+            <details open><summary>Subject: unavailable / Template snapshot is unavailable</summary><div><p>The current template snapshot is unavailable. Close Mass Mailer, open or select a valid unsent email and run <code>MassMail_Open</code> again.</p></div></details>
+            <details><summary>“Open a new email or select an unsent draft first”</summary><div><p>Mass Mailer did not find a usable source. Open a new message in its own window or select exactly one unsent draft in Outlook.</p></div></details>
+            <details><summary>The From identity is wrong</summary><div><p>Use Edit, select the correct From account in Outlook, then press Refresh. Mass Mailer inherits sender context from the template rather than from a separate account selector.</p></div></details>
+            <details><summary>Send Prepared Drafts shows (0)</summary><div><p>Check the selected Send folder. It must contain unsent messages generated and tagged by Mass Mailer. Use Same as create if appropriate.</p></div></details>
+            <details><summary>Outlook reports an inline response / Reading Pane issue</summary><div><p>Outlook cannot VBA-send the current active inline response. Select another item or close the inline editor, then retry Send Prepared Drafts.</p></div></details>
+            <details><summary>Recipient list contains Invalid values</summary><div><p>Check comments, embedded spaces, missing domain portions or other invalid characters. <code>Name &lt;email@example.com&gt;</code> and <code>mailto:email@example.com</code> are supported.</p></div></details>
+            <details><summary>Debug → Compile reports “Ambiguous name detected”</summary><div><p>You likely have old and new engine modules containing identical public procedure names. Keep one current Mass Mailer engine version.</p></div></details>
+            <details><summary>The macro does not run at all</summary><div><p>Confirm you are using Outlook Classic, VBA is permitted by security policy, and the project compiles without errors. Corporate policy may require administrator assistance.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="en-data">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">DATA</span><h2>Local Mass Mailer files</h2></div>
+          <div class="data-table">
+            <div class="data-row"><strong>Presets</strong><code>%APPDATA%\OutlookMassMailer\Presets\*.txt</code><span>Persistent until deleted by the user</span></div>
+            <div class="data-row"><strong>Last preset</strong><code>%APPDATA%\OutlookMassMailer\last-preset.txt</code><span>Name of the most recently used preset</span></div>
+            <div class="data-row"><strong>Template snapshot</strong><code>%TEMP%\MassMailer_*.oft</code><span>Temporary OFT; stale files are cleaned by Mass Mailer</span></div>
+          </div>
+          <p class="muted">Recipient presets are stored locally in the current Windows user profile.</p>
+        </div>
+      </section>
+
+      <section class="section" id="en-faq">
+        <div class="shell">
+          <div class="section-heading"><span class="section-kicker">FAQ</span><h2>Frequently asked questions</h2></div>
+          <div class="faq">
+            <details><summary>Can recipients see each other?</summary><div><p>Not through the main recipient list: Mass Mailer creates one separate TO message per recipient. However, template CC/BCC values are preserved and therefore remain the same across the generated messages.</p></div></details>
+            <details><summary>Can I use the same folder for creation and sending?</summary><div><p>Yes. Use Same as create. A dedicated Mass Mailer Queue folder is a clean option.</p></div></details>
+            <details><summary>Can I edit the template after opening Mass Mailer?</summary><div><p>Yes. Use Edit, modify the Outlook message, then press Refresh so the snapshot is updated.</p></div></details>
+            <details><summary>Can I close Mass Mailer during processing?</summary><div><p>No. The form prevents closing while the batch operation is active.</p></div></details>
+            <details><summary>Does Mass Mailer bypass Exchange limits?</summary><div><p>No. It optimizes local message generation, but server quotas, throttling and anti-spam policies still apply.</p></div></details>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div>
+        <strong>Mass Mailer 2.4</strong>
+        <p class="only-ru">Инструкция по установке и использованию для Outlook Classic.</p>
+        <p class="only-en">Installation and user guide for Outlook Classic.</p>
+      </div>
+      <a href="#top" class="back-top">
+        <span class="only-ru">Наверх ↑</span>
+        <span class="only-en">Back to top ↑</span>
+      </a>
+    </div>
+  </footer>
+
+  <dialog class="image-dialog" id="imageDialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Close">×</button>
+    </form>
+    <img src="assets/massmailer-interface.png" alt="Mass Mailer 2.4 interface">
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

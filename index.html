@@ -1,836 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Garry's Mod — тёплая фан-страница</title>
-  <meta name="description" content="Тёплая фан-страница про Garry's Mod: история, режимы, атмосфера, галерея и сервер.">
-  <style>
-    :root{
-      --bg:#1f1a16;
-      --bg-soft:#2a241f;
-      --panel:#f0e2cc;
-      --panel-2:#e3d0b5;
-      --ink:#2c241d;
-      --ink-soft:#5b4d41;
-      --accent:#b86732;
-      --accent-2:#8c4d22;
-      --olive:#6b6d42;
-      --line:rgba(65,45,28,.18);
-      --shadow:0 18px 45px rgba(0,0,0,.18);
-      --white:#fffaf2;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(184,103,50,.10), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(107,109,66,.12), transparent 30%),
-        linear-gradient(180deg,#191511 0%, #231d18 100%);
-    }
-
-    a{color:inherit}
-    img{max-width:100%; display:block}
-
-    .container{
-      width:min(1160px, calc(100% - 28px));
-      margin:0 auto;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(10px);
-      background:rgba(27,22,18,.78);
-      border-bottom:1px solid rgba(255,244,230,.08);
-    }
-
-    .topbar-inner{
-      min-height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:var(--white);
-      font-weight:800;
-      letter-spacing:-0.03em;
-    }
-
-    .brand-badge{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, #d77f45, #8f5428);
-      color:#fff;
-      font-size:24px;
-      font-weight:900;
-      box-shadow:0 10px 20px rgba(184,103,50,.28);
-    }
-
-    .brand small{
-      display:block;
-      color:#cfbaa0;
-      font-size:12px;
-      font-weight:600;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:#f4e6d4;
-      font-size:14px;
-      font-weight:700;
-      padding:10px 12px;
-      border-radius:10px;
-      transition:.2s ease;
-    }
-
-    nav a:hover{
-      background:rgba(255,255,255,.07);
-      color:#fff;
-    }
-
-    .hero{
-      padding:56px 0 34px;
-    }
-
-    .hero-card{
-      overflow:hidden;
-      border-radius:30px;
-      background:
-        linear-gradient(90deg, rgba(33,27,22,.92) 0%, rgba(33,27,22,.72) 42%, rgba(33,27,22,.35) 100%),
-        url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_hero.jpg") center/cover no-repeat;
-      min-height:580px;
-      display:grid;
-      align-items:end;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(255,245,233,.08);
-    }
-
-    .hero-content{
-      padding:56px;
-      max-width:680px;
-      color:var(--white);
-    }
-
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:16px;
-      padding:9px 14px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#f7dbc2;
-      background:rgba(184,103,50,.18);
-      border:1px solid rgba(255,240,227,.10);
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:#f0ad68;
-      box-shadow:0 0 12px rgba(240,173,104,.6);
-    }
-
-    h1{
-      margin:0;
-      font-size:clamp(42px, 7vw, 82px);
-      line-height:.94;
-      letter-spacing:-.06em;
-    }
-
-    .hero-content p{
-      margin:20px 0 0;
-      font-size:clamp(16px, 2vw, 20px);
-      line-height:1.6;
-      color:#e7d8c7;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:28px;
-    }
-
-    .button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:50px;
-      padding:0 18px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:800;
-      transition:.2s ease;
-      border:1px solid transparent;
-    }
-
-    .button.primary{
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      color:#fff;
-      box-shadow:0 10px 26px rgba(184,103,50,.26);
-    }
-
-    .button.secondary{
-      color:#fff8ef;
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.12);
-    }
-
-    .button:hover{transform:translateY(-2px)}
-
-    .quick{
-      margin-top:-36px;
-      position:relative;
-      z-index:3;
-    }
-
-    .quick-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:16px;
-    }
-
-    .quick-card{
-      padding:20px;
-      border-radius:20px;
-      background:var(--panel);
-      border:1px solid rgba(93,68,47,.08);
-      box-shadow:var(--shadow);
-    }
-
-    .quick-card .n{
-      color:var(--accent);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .quick-card h3{
-      margin:10px 0 8px;
-      font-size:21px;
-      letter-spacing:-.03em;
-    }
-
-    .quick-card p{
-      margin:0;
-      color:var(--ink-soft);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    section{
-      padding:70px 0;
-    }
-
-    .section-head{
-      max-width:760px;
-      margin-bottom:28px;
-    }
-
-    .section-head .kicker{
-      display:block;
-      margin-bottom:10px;
-      color:var(--accent);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .section-head h2{
-      margin:0;
-      font-size:clamp(32px, 5vw, 54px);
-      line-height:1;
-      letter-spacing:-.05em;
-      color:var(--white);
-    }
-
-    .section-head p{
-      margin:14px 0 0;
-      color:#ccbca9;
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    .history-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:16px;
-    }
-
-    .history-card{
-      min-height:220px;
-      padding:24px;
-      border-radius:22px;
-      background:linear-gradient(180deg, #f0dfc6 0%, #e4d1b3 100%);
-      border:1px solid rgba(92,68,47,.1);
-      box-shadow:var(--shadow);
-    }
-
-    .history-card .year{
-      color:var(--accent-2);
-      font-size:13px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .history-card h3{
-      margin:12px 0 10px;
-      font-size:24px;
-      letter-spacing:-.03em;
-    }
-
-    .history-card p{
-      margin:0;
-      color:var(--ink-soft);
-      line-height:1.65;
-      font-size:15px;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:18px;
-      align-items:stretch;
-    }
-
-    .panel{
-      background:var(--panel);
-      border-radius:26px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      border:1px solid rgba(92,68,47,.1);
-    }
-
-    .panel.pad{padding:28px}
-
-    .modes-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .mode{
-      padding:18px;
-      border-radius:18px;
-      background:#f7ebd8;
-      border:1px solid var(--line);
-    }
-
-    .mode strong{
-      display:block;
-      margin-bottom:6px;
-      font-size:19px;
-      letter-spacing:-.02em;
-    }
-
-    .mode span{
-      color:var(--ink-soft);
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .side-photo{
-      min-height:100%;
-      background:
-        linear-gradient(180deg, rgba(34,28,22,.10), rgba(34,28,22,.10)),
-        url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg") center/cover no-repeat;
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:16px;
-    }
-
-    .shot{
-      overflow:hidden;
-      border-radius:22px;
-      background:var(--panel);
-      border:1px solid rgba(92,68,47,.1);
-      box-shadow:var(--shadow);
-    }
-
-    .shot img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
-
-    .shot .caption{
-      padding:16px 18px 18px;
-    }
-
-    .shot .caption strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:6px;
-    }
-
-    .shot .caption span{
-      color:var(--ink-soft);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .facts-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .fact-card{
-      padding:24px;
-      border-radius:22px;
-      background:linear-gradient(180deg, #f4e5cf 0%, #e7d4b9 100%);
-      border:1px solid rgba(92,68,47,.1);
-      box-shadow:var(--shadow);
-    }
-
-    .fact-card h3{
-      margin:0 0 10px;
-      font-size:22px;
-      letter-spacing:-.03em;
-    }
-
-    .fact-card p{
-      margin:0;
-      color:var(--ink-soft);
-      line-height:1.65;
-    }
-
-    .server-box{
-      padding:34px;
-      border-radius:28px;
-      background:
-        linear-gradient(135deg, rgba(184,103,50,.16), rgba(107,109,66,.13)),
-        var(--panel);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(92,68,47,.1);
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:20px;
-      align-items:center;
-    }
-
-    .server-box h2{
-      margin:0;
-      font-size:clamp(30px, 4vw, 46px);
-      letter-spacing:-.05em;
-      line-height:1;
-    }
-
-    .server-box p{
-      margin:14px 0 0;
-      color:var(--ink-soft);
-      line-height:1.7;
-      font-size:16px;
-    }
-
-    .server-status{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-      color:var(--olive);
-      font-size:12px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-    }
-
-    .server-card{
-      padding:24px;
-      border-radius:22px;
-      background:#fffaf1;
-      border:1px solid rgba(92,68,47,.1);
-    }
-
-    .server-card small{
-      display:block;
-      color:var(--ink-soft);
-      margin-bottom:8px;
-    }
-
-    .server-card code{
-      display:block;
-      margin-bottom:16px;
-      padding:13px 14px;
-      border-radius:14px;
-      font-family:Consolas, monospace;
-      background:#f1e3cf;
-      border:1px solid var(--line);
-      word-break:break-all;
-    }
-
-    .mini-stats{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .mini{
-      padding:12px;
-      border-radius:14px;
-      background:#f6ead7;
-      border:1px solid var(--line);
-    }
-
-    .mini b{
-      display:block;
-      font-size:18px;
-      margin-bottom:2px;
-    }
-
-    .mini span{
-      color:var(--ink-soft);
-      font-size:13px;
-    }
-
-    footer{
-      padding:22px 0 38px;
-      color:#c8b8a6;
-    }
-
-    .footer-card{
-      padding:18px 20px;
-      border-radius:18px;
-      background:rgba(255,248,239,.04);
-      border:1px solid rgba(255,248,239,.08);
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    @media (max-width: 980px){
-      .quick-grid,
-      .history-grid,
-      .gallery-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .split,
-      .server-box{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 680px){
-      .topbar-inner{
-        min-height:auto;
-        padding:14px 0;
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .hero-card{min-height:520px}
-      .hero-content{padding:30px}
-      .quick-grid,
-      .history-grid,
-      .gallery-grid,
-      .facts-grid{
-        grid-template-columns:1fr;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ZNETW — единая точка входа к веб-проектам, учебным материалам и файлам.">
+  <meta name="theme-color" content="#14243a">
+  <title>ZNETW — проекты и материалы</title>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#top" class="brand">
-        <span class="brand-badge">G</span>
-        <span>
-          Garry’s Mod
-          <small>теплая фан-страница</small>
-        </span>
-      </a>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
 
-      <nav>
-        <a href="#history">История</a>
-        <a href="#modes">Режимы</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#facts">Интересное</a>
-        <a href="#server">Сервер</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="ZNETW — главная">
+        <span class="brand-mark" aria-hidden="true">Z</span>
+        <span>ZNETW</span>
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#projects">Проекты</a>
+        <a href="#materials">Материалы</a>
+        <a href="#about">О странице</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main id="content">
     <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <div class="hero-content">
-            <div class="eyebrow">
-              <span class="dot"></span>
-              Physics Sandbox • Source Engine • Community
-            </div>
-            <h1>Garry’s Mod — место, где игрок сам придумывает игру</h1>
-            <p>
-              Не просто шутер и не просто мод. Garry’s Mod — это песочница на движке Source,
-              где можно строить, ломать, ставить NPC, снимать сценки, создавать безумные
-              механизмы и запускать собственные игровые режимы.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#history">Посмотреть историю</a>
-              <a class="button secondary" href="#gallery">Открыть галерею</a>
-            </div>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Центр проектов</p>
+          <h1>Добро пожаловать<br>в ZNETW</h1>
+          <p class="lead">Единая точка входа к опубликованным веб-проектам, учебным материалам и рабочим файлам.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Открыть проекты</a>
+            <a class="button button-secondary" href="#materials">Перейти к материалам</a>
           </div>
         </div>
-
-        <div class="quick">
-          <div class="quick-grid">
-            <div class="quick-card">
-              <div class="n">Основа</div>
-              <h3>Sandbox</h3>
-              <p>Свободная физическая песочница с инструментами, пропами, NPC и полной свободой действий.</p>
-            </div>
-            <div class="quick-card">
-              <div class="n">Инструменты</div>
-              <h3>Tool Gun & Physgun</h3>
-              <p>Две вещи, без которых невозможно представить GMod: создание, настройка и перемещение объектов.</p>
-            </div>
-            <div class="quick-card">
-              <div class="n">Сообщество</div>
-              <h3>Workshop</h3>
-              <p>Карты, модели, аддоны, оружие, транспорт и всё, что делает каждый сервер уникальным.</p>
-            </div>
-            <div class="quick-card">
-              <div class="n">Режимы</div>
-              <h3>DarkRP, TTT, Prop Hunt</h3>
-              <p>Из одной игры выросли десятки разных жанров — от RP до пряток и детективов.</p>
-            </div>
-          </div>
-        </div>
+        <aside class="summary" aria-label="Краткая информация">
+          <span class="status"><span aria-hidden="true"></span> GitHub Pages</span>
+          <h2>Статический архив</h2>
+          <p>Все разделы доступны напрямую, не требуют регистрации и открываются в современном браузере.</p>
+          <dl>
+            <div><dt>Формат</dt><dd>HTML / PDF / ICS</dd></div>
+            <div><dt>Домен</dt><dd>znetw.ru</dd></div>
+          </dl>
+        </aside>
       </div>
     </section>
 
-    <section id="history">
+    <section class="section" id="projects">
       <div class="container">
-        <div class="section-head">
-          <span class="kicker">История</span>
-          <h2>Как мод для Half-Life 2 превратился в большую творческую платформу</h2>
-          <p>
-            Изначально Garry’s Mod был экспериментом с физикой и объектами Source Engine.
-            Со временем он стал самостоятельной игрой и домом для огромного количества
-            сообществ, серверов и пользовательского контента.
-          </p>
-        </div>
-
-        <div class="history-grid">
-          <article class="history-card">
-            <div class="year">2004</div>
-            <h3>Первые версии</h3>
-            <p>Garry’s Mod появляется как модификация для Half-Life 2, позволяя игрокам свободно взаимодействовать с физикой.</p>
-          </article>
-          <article class="history-card">
-            <div class="year">2005–2006</div>
-            <h3>Бурный рост</h3>
-            <p>Мод быстро набирает популярность. Появляются первые комьюнити, сценки, ролики и эксперименты с картами и моделями.</p>
-          </article>
-          <article class="history-card">
-            <div class="year">Steam</div>
-            <h3>Отдельная игра</h3>
-            <p>Проект выходит как самостоятельная игра, а затем становится одной из самых известных песочниц на Source.</p>
-          </article>
-          <article class="history-card">
-            <div class="year">Сегодня</div>
-            <h3>Живое сообщество</h3>
-            <p>Сотни серверов, тысячи аддонов и бесконечное число идей: от простого строительства до полноценных RP-миров.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="modes">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Режимы</span>
-          <h2>Одна основа — множество разных игр</h2>
-          <p>
-            На одном сервере ты можешь строить машины из пропов, а на другом — жить в роли
-            полицейского, врача, гангстера или детектива. В этом и магия Garry’s Mod.
-          </p>
-        </div>
-
-        <div class="split">
-          <div class="panel pad">
-            <div class="modes-list">
-              <div class="mode">
-                <strong>Sandbox</strong>
-                <span>Классический режим, где игрок получает максимальную свободу: строить, соединять объекты, спавнить NPC и экспериментировать.</span>
-              </div>
-              <div class="mode">
-                <strong>DarkRP</strong>
-                <span>Городская ролевая жизнь с работами, полицией, криминалом, экономикой и собственными правилами на каждом сервере.</span>
-              </div>
-              <div class="mode">
-                <strong>Trouble in Terrorist Town</strong>
-                <span>Командный детективный режим, где нужно вычислять предателей и не ошибиться в своих выводах.</span>
-              </div>
-              <div class="mode">
-                <strong>Prop Hunt</strong>
-                <span>Весёлый режим пряток, где игроки маскируются под предметы карты, а охотники пытаются их обнаружить.</span>
-              </div>
-            </div>
-          </div>
-          <div class="panel side-photo"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Галерея</span>
-          <h2>Атмосфера игры: немного хаоса, юмора и конструирования</h2>
-          <p>
-            Визуально Garry’s Mod — это Source-эстетика: серые карты, светлые помещения,
-            знакомые модели, физические объекты и простые, но очень узнаваемые сцены.
-          </p>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="shot">
-            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/header.jpg" alt="Garry's Mod header">
-            <div class="caption">
-              <strong>Классическая сцена GMod</strong>
-              <span>Знакомая атмосфера песочницы: персонажи Source, объекты и немного контролируемого безумия.</span>
-            </div>
-          </article>
-
-          <article class="shot">
-            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/capsule_616x353.jpg" alt="Garry's Mod capsule">
-            <div class="caption">
-              <strong>Физика как главная фишка</strong>
-              <span>Именно свобода взаимодействия с объектами сделала GMod особенной игрой для творчества.</span>
-            </div>
-          </article>
-
-          <article class="shot">
-            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4000/library_hero.jpg" alt="Garry's Mod hero">
-            <div class="caption">
-              <strong>Пространство для идей</strong>
-              <span>На сервере можно делать почти всё: строить, тестировать аддоны, устраивать RP и просто веселиться.</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="facts">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Интересное</span>
-          <h2>Почему Garry’s Mod до сих пор любят</h2>
-          <p>
-            Эта игра стала площадкой, где техническая простота сочетается с безграничной
-            свободой. Именно за это её и ценят уже много лет.
-          </p>
-        </div>
-
-        <div class="facts-grid">
-          <article class="fact-card">
-            <h3>Инструмент, а не только игра</h3>
-            <p>GMod часто воспринимают как набор инструментов для творчества: кто-то снимает сценки, кто-то строит механизмы, а кто-то делает целый игровой проект.</p>
-          </article>
-          <article class="fact-card">
-            <h3>Большая роль Lua</h3>
-            <p>Lua-скрипты сделали возможным огромное разнообразие режимов и серверных механик, благодаря которым каждый проект ощущается по-своему.</p>
-          </article>
-          <article class="fact-card">
-            <h3>Своя визуальная узнаваемость</h3>
-            <p>У Garry’s Mod нет сверхсложной графики, но есть очень сильная атмосфера: Source-модели, gm_construct, toolgun и тот самый дух эксперимента.</p>
-          </article>
-          <article class="fact-card">
-            <h3>Живое комьюнити</h3>
-            <p>Даже спустя годы игра остаётся востребованной благодаря серверам, модам, мемам и тому, что в ней всегда можно придумать что-то новое.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="server">
-      <div class="container">
-        <div class="server-box">
+        <div class="section-heading">
           <div>
-            <div class="server-status">
-              <span class="dot"></span>
-              Сервер скоро откроется
-            </div>
-            <h2>Здесь может быть твой GMod-сервер</h2>
-            <p>
-              Этот блок можно использовать как красивую заглушку: указать IP, Discord,
-              кратко описать режим и сообщить, что проект скоро стартует.
-            </p>
-            <p>
-              Подойдёт для DarkRP, Sandbox, TTT или любого авторского режима.
-            </p>
+            <p class="eyebrow">Основные разделы</p>
+            <h2>Веб-проекты</h2>
           </div>
-
-          <div class="server-card">
-            <small>Адрес сервера</small>
-            <code>play.example.ru:27015</code>
-
-            <div class="mini-stats">
-              <div class="mini">
-                <b>24</b>
-                <span>слота</span>
-              </div>
-              <div class="mini">
-                <b>DarkRP</b>
-                <span>режим</span>
-              </div>
-              <div class="mini">
-                <b>Discord</b>
-                <span>сообщество</span>
-              </div>
-              <div class="mini">
-                <b>Soon</b>
-                <span>открытие</span>
-              </div>
-            </div>
-          </div>
+          <p>Отдельные страницы и приложения, собранные в одном месте.</p>
         </div>
+
+        <div class="card-grid">
+          <article class="card card-featured">
+            <span class="card-index">01</span>
+            <div class="card-icon" aria-hidden="true">И</div>
+            <h3>Иллионора</h3>
+            <p>Страница Telegram-бота с быстрыми ссылками на сервис и канал проекта.</p>
+            <a class="card-link" href="illionora/">Перейти к боту <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card">
+            <span class="card-index">02</span>
+            <div class="card-icon" aria-hidden="true">G</div>
+            <h3>Garry’s Mod</h3>
+            <p>Современная фан-страница об истории, режимах и сообществе игры.</p>
+            <a class="card-link" href="projects/gmod/">Открыть страницу <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card">
+            <span class="card-index">03</span>
+            <div class="card-icon" aria-hidden="true">’05</div>
+            <h3>GMod: архивный стиль</h3>
+            <p>Альтернативная версия фан-страницы в эстетике раннего интернета.</p>
+            <a class="card-link" href="gmod_lamp.html">Открыть страницу <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card">
+            <span class="card-index">04</span>
+            <div class="card-icon" aria-hidden="true">M</div>
+            <h3>Руководство MarkItDown</h3>
+            <p>Автономное пользовательское руководство по установке и конвертации файлов.</p>
+            <a class="card-link" href="guides/markitdown/">Открыть руководство <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="materials">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Файлы</p>
+            <h2>Материалы и загрузки</h2>
+          </div>
+          <p>Документы открываются в браузере, календари можно импортировать в приложение расписания.</p>
+        </div>
+
+        <div class="resource-grid">
+          <article class="resource-block">
+            <div class="resource-title">
+              <span class="resource-icon" aria-hidden="true">PDF</span>
+              <div><h3>Документы</h3><p>Файлы для просмотра и скачивания</p></div>
+            </div>
+            <ul class="resource-list">
+              <li><a href="pdfiles/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BA%D0%B0.pdf">Проектка.pdf <span>Открыть</span></a></li>
+            </ul>
+          </article>
+
+          <article class="resource-block">
+            <div class="resource-title">
+              <span class="resource-icon" aria-hidden="true">ICS</span>
+              <div><h3>Календари</h3><p>Файлы расписания в формате iCalendar</p></div>
+            </div>
+            <ul class="resource-list">
+              <li><a href="calendar/raspisanie_3834.ics">Расписание 3834 <span>Скачать</span></a></li>
+              <li><a href="calendar/raspisanie_3834_9.ics">Расписание 3834.9 <span>Скачать</span></a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about">
+        <div>
+          <p class="eyebrow">О странице</p>
+          <h2>Простая и надёжная навигация</h2>
+        </div>
+        <p>Главная страница не использует фреймворки, внешние шрифты или сторонние скрипты. Благодаря этому она быстро загружается и стабильно работает как на основном домене, так и через GitHub Pages.</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-card">
-        <span>© 2026 Garry’s Mod Fan Page</span>
-        <span>Тёплый индустриальный стиль • без фиолетово-голубой палитры</span>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 ZNETW</p>
+      <a href="https://github.com/islavdo/znetw.ru">Репозиторий на GitHub</a>
     </div>
   </footer>
 </body>

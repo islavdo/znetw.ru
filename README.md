@@ -1,18 +1,35 @@
 # znetw.ru
 
-Статический сайт публикуется средствами GitHub Pages непосредственно из корня ветки `main` — без GitHub Actions и без отдельной ветки `gh-pages`.
+Статический сайт-навигатор по веб-проектам и материалам. Публикация выполняется GitHub Pages непосредственно из корня ветки `main` — без пользовательских GitHub Actions и без отдельной ветки `gh-pages`.
 
-## Настройка GitHub Pages
+## Структура
 
-1. Откройте **Settings → Pages** в репозитории.
-2. В разделе **Build and deployment** выберите **Source → Deploy from a branch**.
-3. Выберите ветку **main**, каталог **/(root)** и нажмите **Save**.
-4. В поле **Custom domain** укажите `znetw.ru` и нажмите **Save**.
-5. Дождитесь выпуска сертификата и включите **Enforce HTTPS**.
+- `index.html` — главная страница и навигация по разделам;
+- `assets/site.css` — стили главной страницы;
+- `404.html` — страница для несуществующих адресов;
+- `illionora/` — страница Telegram-бота;
+- `guides/markitdown/` — руководство пользователя MarkItDown;
+- `projects/gmod/` и `gmod_lamp.html` — страницы Garry’s Mod;
+- `calendar/` — календари в формате ICS;
+- `pdfiles/` — документы PDF;
+- `CNAME` — пользовательский домен `znetw.ru`;
+- `.nojekyll` — публикация файлов без обработки Jekyll.
 
-После этого каждый push в `main` автоматически обновляет сайт. Главная страница — корневой [`index.html`](index.html). Файл [`CNAME`](CNAME) закрепляет домен `znetw.ru`, а [`.nojekyll`](.nojekyll) отключает обработку Jekyll.
+Главная страница не зависит от внешних библиотек, шрифтов или JavaScript.
 
-## DNS для znetw.ru
+## GitHub Pages
+
+В **Settings → Pages** должны быть выбраны:
+
+- **Source:** Deploy from a branch;
+- **Branch:** `main`;
+- **Folder:** `/(root)`;
+- **Custom domain:** `znetw.ru`;
+- **Enforce HTTPS:** включено после выпуска сертификата.
+
+Файл `CNAME` должен оставаться в корне репозитория. После каждого изменения `main` GitHub Pages самостоятельно обновляет статический сайт.
+
+## DNS
 
 A-записи корневого домена (`@`):
 
@@ -23,20 +40,4 @@ A-записи корневого домена (`@`):
 185.199.111.153
 ```
 
-Опциональные AAAA-записи:
-
-```text
-2606:50c0:8000::153
-2606:50c0:8001::153
-2606:50c0:8002::153
-2606:50c0:8003::153
-```
-
-Для `www` используйте CNAME-запись `www` → `islavdo.github.io`. Не используйте wildcard-записи (`*`). Для защиты от перехвата домена рекомендуется подтвердить его через **Profile settings → Pages** и сохранить выданную GitHub TXT-запись.
-
-Проверка DNS в PowerShell:
-
-```powershell
-Resolve-DnsName znetw.ru -Type A
-Resolve-DnsName www.znetw.ru -Type CNAME
-```
+Для `www` используется CNAME-запись `www` → `islavdo.github.io`. Wildcard-записи (`*`) не нужны.
